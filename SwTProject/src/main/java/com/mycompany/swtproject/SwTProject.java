@@ -3,7 +3,7 @@
  */
 
 package com.mycompany.swtproject;
-
+import java.util.ArrayList;
 /**
  *
  * @author Michael
@@ -16,15 +16,24 @@ public class SwTProject {
         
         MovieFilereader FrM = new MovieFilereader(); // movie file reader 
         UserFilereader FrU = new UserFilereader(); // user file reader
-        String MovieFile =".txt";   //directory
-        String UserFile =".txt"; // user directory
+        String MovieFilePath =".txt";   //movie file directory
+        String UserFilePath =".txt"; // user file directory
         
-        Recommender Recmnd = new Recommender(FrM.getMovies(MovieFile) , FrU.getUsers(UserFile));
+        ArrayList<Movie> Movies = FrM.ReadMovies(MovieFilePath); // get lists of movies and user by reading file
+        ArrayList<User> Users = FrU.ReadUsers(UserFilePath);
+        
+        UserValidator UV= new UserValidator(Users);
+        MovieValidator MV= new MovieValidator(Movies);
+        
+        Recommender Recmnd = new Recommender( Movies, Users);
+        OutputFileWriter FwO = new OutputFileWriter();
+        Recmnd.GetAllRecommendations(FwO);
+        
+        
+        
+        
+        
        
-        
-        //Recmnd.recommendForAllUsers();
-        
-       
-        // OutputFileWriter FwO = new OutputFileWriter();        
+                
     }
 }

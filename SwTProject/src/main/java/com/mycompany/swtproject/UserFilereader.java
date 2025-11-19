@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class UserFilereader {
     
     
-      public ArrayList<User> getUsers(String filename){
+      public ArrayList<User> ReadUsers(String filename){
       String myline;
       ArrayList<User> users = new ArrayList<>();
       
@@ -28,15 +28,15 @@ public class UserFilereader {
         String likedmovies = reader.readLine();
         
         if (likedmovies == null) {
-          throw new Exception("Missing liked movies line for user: ");
+          throw new Exception("Missing liked movies , at least 1 ");
         }
         
-        username = username.trim();
-        likedmovies = likedmovies.trim();
+        //username = username.trim();
+        //likedmovies = likedmovies.trim();
           
         String[] userInfo = username.split(",");
          
-        if (userInfo.length != 2) {throw new Exception("wrong");}
+        if (userInfo.length != 2) {throw new Exception("missing info");}
           
           User CurrentUser = new User();
           CurrentUser.setName(userInfo[0].trim());

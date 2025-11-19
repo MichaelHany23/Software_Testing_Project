@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class MovieFilereader {
     
     
-    public ArrayList<Movie> getMovies(String filename){
+    public ArrayList<Movie> ReadMovies(String filename){
       String myline;
       ArrayList<Movie> movies = new ArrayList<>();
       try
@@ -27,10 +27,10 @@ public class MovieFilereader {
              
              if (genres == null) // there must be atleast 1 genre
              {
-                 throw new Exception (""); 
+                 throw new Exception ("missing genres , at least 1"); 
              }
-             movieName=movieName.trim(); // remove spaces
-             genres=genres.trim();
+             //movieName=movieName.trim(); // remove spaces
+             //genres=genres.trim();
              
         
              
@@ -38,7 +38,7 @@ public class MovieFilereader {
              Movie CurrentMovie = new Movie();
              
              String[] MovieInfo = movieName.split(",");
-             if(MovieInfo.length != 2) {throw new Exception("") ; }
+             if(MovieInfo.length != 2) {throw new Exception("missing info") ; }
              
              
              CurrentMovie.setMovieTitle(MovieInfo[0].trim());
@@ -53,7 +53,7 @@ public class MovieFilereader {
       }
       catch(Exception e)
       {
-         System.out.println("Exception: " +e);
+         System.out.println("Exception: " + e.getMessage());
       }
       
       return movies ;

@@ -22,14 +22,24 @@ public class Recommender {
         this.movies = Filemovies ;
         this.users = Fileusers ;
     }
-    public void recommendForAllUsers() {
-        
-        for (User user : users) {
-            ArrayList<String> results = recommendMovies(user);
-            System.out.println("Recommendations for " + user.getName() + ": " + results);
+   public void GetAllRecommendations(OutputFileWriter O) 
+    {
+        for(int i = 0 ; i < users.size() ; i++)
+        {
+            GetRecommendations_Results(O , users.get(i));
         }
+
     }
-    public ArrayList<String> recommendMovies(User user) {
+    
+    private void GetRecommendations_Results(OutputFileWriter O , User U)
+    {
+        //used per each user 
+        ArrayList<String> results = recommendMovies(U);
+        // append to the output file
+        O.WriteRecommendations(U , results);
+    }    
+
+    private ArrayList<String> recommendMovies(User user) {
         
         Set<String> likedMovieIds = new HashSet<>();
         
