@@ -275,7 +275,7 @@ public class UserValidatorTest {
     @Test
     public void TC14()
     {
-        // correct name and id in small letter
+        // correct name and id 
         ArrayList<User> users = new ArrayList<>();
         User u1 = new User(); 
         u1.setName("michael");
@@ -291,9 +291,50 @@ public class UserValidatorTest {
         assertTrue(UV.ErrorIsEmpty());
        
     }
+    @Test
+    public void TC15()
+    {
+        // correct name and id duplicate
+        ArrayList<User> users = new ArrayList<>();
+        
+        User u1 = new User(); 
+        u1.setName("michael sameh");
+        u1.setUserId("123456789");
+       
+        User u2 = new User(); 
+        u2.setName("michael hany");
+        u2.setUserId("987654301");
+
+        User u3 = new User(); 
+        u3.setName("michael sameh");
+        u3.setUserId("987654301");
+        
+        User u4 = new User(); 
+        u4.setName("michael hany");
+        u4.setUserId("9ABCDEFG0");
+        
+        User u5 = new User(); 
+        u5.setName("andrew wagdy");
+        u5.setUserId("9ABCDEFG0"); 
+        
+        users.add(u1);
+        users.add(u2);
+        users.add(u3);
+        users.add(u4);
+        users.add(u5);
+            
+        UserValidator UV = new UserValidator(users); 
+        UV.Validate();
+        
+        assertFalse(UV.ErrorIsEmpty());
+        assertEquals(UV.getUser_errors().size() ,2);
+        assertEquals(UV.getUser_errors().get(0) ,"ERROR: User ID {" + u3.getUserId() + "} is wrong");
+        assertEquals(UV.getUser_errors().get(1) ,"ERROR: User ID {" + u5.getUserId() + "} is wrong");
+    }
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
     //
     // @Test
     // public void hello() {}
 }
+
