@@ -66,4 +66,45 @@ public class MovieFilereader {
       
       return movies ;
    }
+
+   //// READMOVIES function WITH Buffered reader instead of giving the direct filename
+    // BufferedReader 
+    // Flexibility & used in MovieFilereader test
+    public ArrayList<Movie> ReadMovies(BufferedReader reader) {
+    String myline;
+    ArrayList<Movie> movies = new ArrayList<>();
+    try {
+        while ((myline = reader.readLine()) != null) {
+            // skip blank lines
+            while (myline != null && myline.trim().isEmpty()) {
+                myline = reader.readLine();
+            }
+            if (myline == null) break;
+
+            String movieName = myline; // current line
+            String genres = reader.readLine(); // next line for genres
+
+            if (genres == null) {
+                throw new Exception("missing genres, at least 1");
+            }
+
+            Movie CurrentMovie = new Movie();
+            String[] MovieInfo = movieName.split(",");
+            if (MovieInfo.length != 2) {
+                throw new Exception("missing info");
+            }
+
+            CurrentMovie.setMovieTitle(MovieInfo[0].trim());
+            CurrentMovie.setMovieId(MovieInfo[1].trim());
+            CurrentMovie.setGenres(genres.split(","));
+
+            movies.add(CurrentMovie);
+        }
+    } catch (Exception e) {
+        System.out.println("Exception: " + e.getMessage());
+    }
+    return movies;
+}
+    
 };
+
