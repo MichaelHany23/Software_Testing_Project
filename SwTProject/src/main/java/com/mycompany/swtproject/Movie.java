@@ -18,6 +18,12 @@ public class Movie {
      {
          
      };
+     Movie(String MovieTitle ,String MovieId ,String[] genres )
+     {
+         this.MovieTitle=MovieTitle;
+         this.MovieId = MovieId;
+         this.genres=genres;
+     };
      
      //sort genress
 
@@ -46,3 +52,4 @@ public class Movie {
     }
 
 }
+
