@@ -27,7 +27,33 @@ public class OutputFileWriter {
     {
         this.outputPath = outputpath;
     }
-    public void WriteRecommendations(User U , ArrayList<String> recommendedTitles)
+
+    public void WriteRecommendations(ArrayList<String> results)
+    {
+        try
+        {
+            BufferedWriter writer = new BufferedWriter(new FileWriter(outputPath, true)); // append mode
+
+            // results contains: 
+            // line 1 → "username,userid"
+            // line 2 → "movie1,movie2,movie3"
+
+            for (String line : results) {
+                writer.write(line);
+                writer.newLine();
+            }
+
+            writer.close();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+    } 
+
+    
+    
+   /* public void WriteRecommendations(User U , ArrayList<String> recommendedTitles)
     {
         
         try
@@ -53,7 +79,7 @@ public class OutputFileWriter {
         }
         
         
-    }
+    }*/
     
     
 }
