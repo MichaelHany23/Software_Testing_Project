@@ -18,6 +18,13 @@ public class User {
     {
         
     };
+    User(String name ,String userId , String[] likedMovieIds)
+    {
+        this.name =name;
+        this.userId=userId;
+        this.likedMovieIds=likedMovieIds;
+                
+    }
     // sort liked movieIds
     
     public void setName(String name) {
@@ -45,3 +52,4 @@ public class User {
     }
     
 }
+
