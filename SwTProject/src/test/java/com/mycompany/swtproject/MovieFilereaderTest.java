@@ -11,7 +11,10 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import java.util.ArrayList;
-
+import java.io.BufferedReader;
+import java.io.StringReader;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream; 
 /**
  *
  * @author Michael
@@ -59,36 +62,35 @@ public class MovieFilereaderTest {
             System.out.println("Movie "+i);
             System.out.println(m.getMovieTitle());
             System.out.println(m.getMovieId());
-            System.out.println(m.getGenres().length);
+            System.out.println(m.getGenres());
             System.out.println("\n");
         }
-        
-    
     }
+    
     @Test
     public void TC3()
     {
         //Testcase for Try catch block & error handling
         
         String TestData = "The Matrix,TM123"; // Movie ID, title, no genres
-    
         BufferedReader BR = new BufferedReader(new StringReader(TestData));
         
-     
-        //set an  output stream
+        MovieFilereader reader = new MovieFilereader();
+             
+        
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         PrintStream originalOut = System.out;
         System.setOut(new PrintStream(outContent));
         
-        MovieFilereader reader = new MovieFilereader();
-        reader.ReadMovies(BR);   //Throws error // use the overloaded readmovies with bufferedReader arguments NOT THE STRING FILEPATH or FILENAME
         
-        System.out.println(outContent.toString()); // see what is in the output stream , (catch block system.out.print function)
+        reader.ReadMovies(BR);   //Throws error
+        System.out.println(outContent.toString());
         
         
         assertTrue(outContent.toString().contains("Exception: missing genres"));
         //reset
         System.setOut(originalOut);
     }
+    
+    
 }
-

@@ -275,7 +275,7 @@ public class UserValidatorTest {
     @Test
     public void TC14()
     {
-        // correct name and id 
+        // correct name and id duplicate
         ArrayList<User> users = new ArrayList<>();
         User u1 = new User(); 
         u1.setName("michael");
@@ -337,4 +337,3 @@ public class UserValidatorTest {
     // @Test
     // public void hello() {}
 }
-

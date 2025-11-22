@@ -44,10 +44,10 @@ public class MovieReader_Validator_integrationTest {
             Shutter island,S897  // NOT CAPITAL (Error 2)
             Thriller,Mystery,Drama
 
-            The Avengers,TA300   // NUMBERS ARENT UNIQUE
+            The Avengers,TA300   // NUMBERS ARENT UNIQUE (Error 3)
             Action,Sci-Fi,Adventure
 
-            Joker,JK501  // WRONG CAPITAL LETTER IN ID
+            Joker,JK501  // WRONG CAPITAL LETTER IN ID (Error 4)
             Drama,Crime,Thriller
 
             */

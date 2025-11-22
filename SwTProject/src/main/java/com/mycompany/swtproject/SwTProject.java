@@ -28,7 +28,10 @@ public class SwTProject {
         
         Recommender Recmnd = new Recommender( Movies, Users);
         OutputFileWriter FwO = new OutputFileWriter();
-        Recmnd.GetAllRecommendations(FwO);
+        Recmnd.GetRecommendationsInFile(FwO);
+        
+        
+ 
         
         
         

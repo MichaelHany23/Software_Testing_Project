@@ -31,6 +31,16 @@ public class UserValidator {
     {
         return User_errors.isEmpty(); 
     }
+
+    public ArrayList<User> getUsers() {
+        
+        if(ErrorIsEmpty())return users;
+        
+        return null;
+    }
+    
+    
+    
     private void UserValidate()
     {
          //It must be Alphabetic characters and Spaces. the name should not start with space. 

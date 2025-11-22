@@ -26,7 +26,6 @@ public class Recommender {
       
     public void GetRecommendationsInFile(OutputFileWriter O)
     {
-        if(recommendationsResults.isEmpty()) return ;
         // append to the output file
         O.WriteRecommendations(recommendationsResults);
     }   
@@ -36,7 +35,7 @@ public class Recommender {
     }
     
     //OVERLOADING THE 2 Above function to  LOOSE COUPLE FileWriter & Recommender class
-    //Provide LOOSE COUPLING
+    //Provide LOOSE COUPLIN
      public void FindAllRecommendations() 
     {
         for(int i = 0 ; i < users.size() ; i++)

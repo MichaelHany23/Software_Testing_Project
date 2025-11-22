@@ -35,6 +35,13 @@ public class MovieValidator {
     {
         return Movie_errors.isEmpty(); 
     }
+
+    public ArrayList<Movie> getMovies() {
+        
+        if (ErrorIsEmpty()) return movies;
+        
+        return null;
+    }
   
     private void MovieValidate()
     {

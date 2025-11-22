@@ -28,6 +28,10 @@ public class OutputFileWriter {
         this.outputPath = outputpath;
     }
 
+    public void setOutputPath(String outputPath) {
+        this.outputPath = outputPath;
+    }
+
     public void WriteRecommendations(ArrayList<String> results)
     {
         try
@@ -51,7 +55,14 @@ public class OutputFileWriter {
         }
     } 
 
+    public void cleanFile(String filePath) {
     
+        try (FileWriter fw = new FileWriter(filePath, false)) {
+        fw.write(""); 
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+}
     
    /* public void WriteRecommendations(User U , ArrayList<String> recommendedTitles)
     {

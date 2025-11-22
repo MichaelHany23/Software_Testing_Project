@@ -66,8 +66,8 @@ public class MovieFilereader {
       
       return movies ;
    }
-
-   //// READMOVIES function WITH Buffered reader instead of giving the direct filename
+    
+    //// READMOVIES function WITH Buffered reader instead of giving the direct filename
     // BufferedReader 
     // Flexibility & used in MovieFilereader test
     public ArrayList<Movie> ReadMovies(BufferedReader reader) {
@@ -105,6 +105,6 @@ public class MovieFilereader {
     }
     return movies;
 }
+
     
 };
-

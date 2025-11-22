@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.mycompany.swtproject.MovieValidatorTest" time="0.064" tests="13" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.mycompany.swtproject.MovieValidatorTest" time="0.068" tests="13" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,7 +15,7 @@
     <property name="user.country" value="US"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Apache NetBeans\jdk\bin"/>
-    <property name="sun.java.command" value="C:\Users\Michael\AppData\Local\Temp\surefire17055261390881506071\surefirebooter-20251119163210181_3.jar C:\Users\Michael\AppData\Local\Temp\surefire17055261390881506071 2025-11-19T16-32-10_050-jvmRun1 surefire-20251119163210181_1tmp surefire_0-20251119163210181_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\Michael\AppData\Local\Temp\surefire8943899248436409179\surefirebooter-20251122212437089_3.jar C:\Users\Michael\AppData\Local\Temp\surefire8943899248436409179 2025-11-22T21-24-36_951-jvmRun1 surefire-20251122212437089_1tmp surefire_0-20251122212437089_2tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="test" value="com.mycompany.swtproject.MovieValidatorTest"/>
     <property name="surefire.test.class.path" value="C:\Users\Michael\Documents\NetBeansProjects\SwTProject\target\test-classes;C:\Users\Michael\Documents\NetBeansProjects\SwTProject\target\classes;C:\Users\Michael\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.6.0\junit-jupiter-api-5.6.0.jar;C:\Users\Michael\.m2\repository\org\apiguardian\apiguardian-api\1.1.0\apiguardian-api-1.1.0.jar;C:\Users\Michael\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\Michael\.m2\repository\org\junit\platform\junit-platform-commons\1.6.0\junit-platform-commons-1.6.0.jar;C:\Users\Michael\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.6.0\junit-jupiter-params-5.6.0.jar;C:\Users\Michael\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.6.0\junit-jupiter-engine-5.6.0.jar;C:\Users\Michael\.m2\repository\org\junit\platform\junit-platform-engine\1.6.0\junit-platform-engine-1.6.0.jar;"/>
@@ -31,7 +31,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\Michael\AppData\Local\Temp\surefire17055261390881506071\surefirebooter-20251119163210181_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\Michael\AppData\Local\Temp\surefire8943899248436409179\surefirebooter-20251122212437089_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="21.0.1+12-LTS"/>
@@ -61,17 +61,17 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="65.0"/>
   </properties>
-  <testcase name="TC1" classname="com.mycompany.swtproject.MovieValidatorTest" time="0.024"/>
-  <testcase name="TC2" classname="com.mycompany.swtproject.MovieValidatorTest" time="0.005"/>
+  <testcase name="TC1" classname="com.mycompany.swtproject.MovieValidatorTest" time="0.025"/>
+  <testcase name="TC2" classname="com.mycompany.swtproject.MovieValidatorTest" time="0.006"/>
   <testcase name="TC3" classname="com.mycompany.swtproject.MovieValidatorTest" time="0.001"/>
   <testcase name="TC4" classname="com.mycompany.swtproject.MovieValidatorTest" time="0.001"/>
   <testcase name="TC5" classname="com.mycompany.swtproject.MovieValidatorTest" time="0.001"/>
-  <testcase name="TC6" classname="com.mycompany.swtproject.MovieValidatorTest" time="0.001"/>
+  <testcase name="TC6" classname="com.mycompany.swtproject.MovieValidatorTest" time="0.0"/>
   <testcase name="TC7" classname="com.mycompany.swtproject.MovieValidatorTest" time="0.001"/>
   <testcase name="TC8" classname="com.mycompany.swtproject.MovieValidatorTest" time="0.001"/>
   <testcase name="TC9" classname="com.mycompany.swtproject.MovieValidatorTest" time="0.001"/>
   <testcase name="TC10" classname="com.mycompany.swtproject.MovieValidatorTest" time="0.001"/>
-  <testcase name="TC11" classname="com.mycompany.swtproject.MovieValidatorTest" time="0.0"/>
+  <testcase name="TC11" classname="com.mycompany.swtproject.MovieValidatorTest" time="0.001"/>
   <testcase name="TC12" classname="com.mycompany.swtproject.MovieValidatorTest" time="0.001"/>
   <testcase name="TC13" classname="com.mycompany.swtproject.MovieValidatorTest" time="0.001"/>
 </testsuite>
