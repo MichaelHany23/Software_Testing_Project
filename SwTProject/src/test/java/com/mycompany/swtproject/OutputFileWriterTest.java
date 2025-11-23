@@ -129,4 +129,43 @@ public class OutputFileWriterTest {
         assertEquals(lines.get(4), "Adham Ahmed,12345678A" );
         assertEquals(lines.get(5), "Batman Dark Knight,Shutter Island");
     }
+    @Test
+    public void TC4() throws Exception {
+        
+        //write 2 errors
+        ArrayList<User> users = new ArrayList<>();
+
+        User u1 = new User("Michael Sameh", "1234567AB", new String[]{"BDK142", "TJ125"});
+        users.add(u1);
+        UserValidator UV = new UserValidator(users);
+        UV.Validate();
+        assertEquals(UV.getUser_errors().get(0),"ERROR: User ID {" + u1.getUserId() + "} is wrong");
+        O.WriteFirstError(UV.getUser_errors());
+        
+        List<String> lines = Files.readAllLines(Paths.get(filepath));
+
+        assertEquals(lines.size() , 1);
+        assertEquals(lines.get(0), "ERROR: User ID {" + u1.getUserId() + "} is wrong" );
+        
+           
+        
+    }
+
+    @Test
+    public void TC5() throws Exception {
+        
+       ArrayList<Movie> movies = new ArrayList<>();
+        Movie m1 = new Movie("Batman Dark Knight", "BDK112", new String[]{"Thriller", "Action"});
+        movies.add(m1);
+        MovieValidator MV = new MovieValidator(movies);
+        MV.Validate();
+        
+        assertFalse(MV.ErrorIsEmpty());
+        O.WriteFirstError(MV.getMovie_errors());
+        
+        List<String> lines = Files.readAllLines(Paths.get(filepath));
+
+        assertEquals(lines.size() , 1);
+        assertEquals(lines.get(0), "ERROR:  Movie Id numbers {"+ m1.getMovieId() + "} arent unique");
+    }
 }
