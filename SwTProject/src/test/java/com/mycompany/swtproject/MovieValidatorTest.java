@@ -56,7 +56,7 @@ public class MovieValidatorTest {
         MV.Validate();
         
         assertFalse(MV.ErrorIsEmpty());
-        assertEquals(MV.getMovie_errors().get(0) ,"ERROR:  Movie Id numbers {"+ M1.getMovieId() + "} arent unqiue");
+        assertEquals(MV.getMovie_errors().get(0) ,"ERROR:  Movie Id numbers {"+ M1.getMovieId() + "} arent unique");
     }
     
     @Test
