@@ -31,8 +31,27 @@ public class OutputFileWriter {
     public void setOutputPath(String outputPath) {
         this.outputPath = outputPath;
     }
+    protected void WriteFirstError(ArrayList<String> results)
+    {
+        try
+        {
+            BufferedWriter writer = new BufferedWriter(new FileWriter(outputPath, true)); // append mode
 
-    public void WriteRecommendations(ArrayList<String> results)
+            // results contains: 
+            // line 1 → "username,userid"
+            // line 2 → "movie1,movie2,movie3"
+            String line = results.get(0);
+                writer.write(line);
+                writer.newLine();
+
+            writer.close();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+    protected void WriteRecommendations(ArrayList<String> results)
     {
         try
         {
