@@ -14,12 +14,23 @@ public class SwTProject {
         System.out.println("Hello World!");
         
         System.out.println("Working Directory = " + System.getProperty("user.dir"));
-
         MovieFilereader FrM = new MovieFilereader(); // movie file reader 
-        UserFilereader FrU = new UserFilereader(); // user file reader
+        UserFilereader FrU = new UserFilereader();
         String MovieFilePath =".txt";   //movie file directory
-        String UserFilePath =".txt"; // user file directory
+        String UserFilePath =".txt";
+        String OutputFilePath=".txt";
+        Application app = new Application (FrM,FrU);
+        app.RecommenderApp(MovieFilePath, UserFilePath, OutputFilePath);
         
+        
+       /* MovieFilereader FrM = new MovieFilereader(); // movie file reader 
+        UserFilereader FrU = new UserFilereader(); // user file reader
+        // user file directory
+        String MovieFilePath =".txt";   //movie file directory
+        String UserFilePath =".txt";
+        String OutputFilePath=".txt"; 
+                
+                
         ArrayList<Movie> Movies = FrM.ReadMovies(MovieFilePath); // get lists of movies and user by reading file
         ArrayList<User> Users = FrU.ReadUsers(UserFilePath);
         
@@ -30,7 +41,7 @@ public class SwTProject {
         OutputFileWriter FwO = new OutputFileWriter();
         Recmnd.GetRecommendationsInFile(FwO);
         
-        
+        */
  
         
         
