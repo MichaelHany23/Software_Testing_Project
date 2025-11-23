@@ -104,7 +104,7 @@ public class MovieValidator {
             } 
             if( a== b || b==c || a==c)
             {
-               Movie_errors.add("ERROR:  Movie Id numbers {"+ id + "} arent unqiue");
+               Movie_errors.add("ERROR:  Movie Id numbers {"+ id + "} arent unique");
                continue;
                
             } 
@@ -122,3 +122,4 @@ public class MovieValidator {
     }     
 
 }
+
