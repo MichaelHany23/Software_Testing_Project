@@ -60,7 +60,7 @@ public class MovieReader_Validator_integrationTest {
         assertEquals(errors.size() , 4);
         assertEquals(errors.get(0) , "ERROR: Movie Id letters {TM19} wrong");
         assertEquals(errors.get(1) , "ERROR: Movie Title {Shutter island} wrong");
-        assertEquals(errors.get(2) , "ERROR:  Movie Id numbers {TA300} arent unqiue");
+        assertEquals(errors.get(2) , "ERROR:  Movie Id numbers {TA300} arent unique");
         assertEquals(errors.get(3) , "ERROR: Movie Id letters {JK501} wrong");
         
         
@@ -70,3 +70,4 @@ public class MovieReader_Validator_integrationTest {
     
     
 }
+
