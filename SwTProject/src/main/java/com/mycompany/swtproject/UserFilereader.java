@@ -20,9 +20,16 @@ public class UserFilereader {
       
       try{
       BufferedReader reader = new BufferedReader(new FileReader(filename));
-     
+      
+        
       while((myline = reader.readLine()) != null)
       {
+          
+              //skip blank line
+            while (myline != null && myline.trim().isEmpty()) {
+                 myline = reader.readLine();
+                 }
+                if (myline == null) break;  
           
         String username = myline;
         String likedmovies = reader.readLine();
@@ -59,7 +66,7 @@ public class UserFilereader {
       
       catch(Exception e)
       {
-          System.out.println("Exception: " + e.getMessage());
+          System.out.println("Exception from user reader: " + e.getMessage());
       }
       
       return users;
