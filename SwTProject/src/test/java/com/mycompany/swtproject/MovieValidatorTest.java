@@ -344,8 +344,8 @@ public class MovieValidatorTest {
         MV.Validate();
 
         assertTrue(MV.ErrorIsEmpty());
-       // assertEquals( MV.getMovie_errors().get(0) ,"ERROR: Movie Title {"+ M1.getMovieTitle() + "} wrong");
     }
+
     @Test
     public void TC16() {
         // Scenario: ID numbers are not unique, but separated (e.g., 121)

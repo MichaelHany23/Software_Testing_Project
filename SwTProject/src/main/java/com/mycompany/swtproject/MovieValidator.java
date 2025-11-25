@@ -78,19 +78,21 @@ public class MovieValidator {
              Movie_errors.add("ERROR: Movie Id letters {"+ id + "} wrong");
              continue;
             }
-            
+
             //contain all the capital letters in the title
-            for(int j = 0 ; j< titleparts.length-NonAlphabet_count ; j++)
-            {   
+            int expectedLetterIndex = 0;
+            for (int j = 0; j < titleparts.length; j++) {
                 char current_firstchar = titleparts[j].charAt(0);
                 if (!Character.isAlphabetic(current_firstchar)) continue;
-                else if( !Character.isUpperCase(id.charAt(j)) || current_firstchar != id.charAt(j)) 
-                {
-                    
-                    Movie_errors.add("ERROR: Movie Id letters {"+ id + "} wrong");
+
+                if (!Character.isUpperCase(id.charAt(expectedLetterIndex))
+                        || current_firstchar != id.charAt(expectedLetterIndex)) {
+
+                    Movie_errors.add("ERROR: Movie Id letters {" + id + "} wrong");
                     invalid = true;
                     break;
                 }
+                expectedLetterIndex++;
             }
             if(invalid) continue;
             //check the last 3 digits
