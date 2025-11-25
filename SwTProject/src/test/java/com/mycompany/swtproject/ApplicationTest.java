@@ -63,6 +63,8 @@ public class ApplicationTest {
         List<String> lines = Files.readAllLines(Paths.get(output));
 
         // Assert lines 
+        // mutliple errors in file but caught only the first one as required
+        //assert size = 1
         assertEquals("ERROR:  Movie Id numbers {TM199} arent unique" ,lines.get(0));
         assertEquals(lines.size(),1);
     }
@@ -84,6 +86,7 @@ public class ApplicationTest {
         List<String> lines = Files.readAllLines(Paths.get(output));
 
         // Assert lines 
+        // ends in 2 character wrong
         assertEquals("ERROR: User ID {1234567BA} is wrong" ,lines.get(0));
         assertEquals(lines.size(),1);
     }
@@ -181,3 +184,4 @@ public class ApplicationTest {
    
     }
 }
+
