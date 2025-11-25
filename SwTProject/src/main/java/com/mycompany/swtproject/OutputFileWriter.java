@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class OutputFileWriter {
     
     
-    private String outputPath = "recommendations.txt"; 
+    private String outputPath;
     
     
     OutputFileWriter()
@@ -32,18 +32,20 @@ public class OutputFileWriter {
         this.outputPath = outputPath;
     }
     protected void WriteFirstError(ArrayList<String> results)
-    {
+    {   
+        //clean the file before any writing
+        this.cleanFile(outputPath);
         try
         {
             BufferedWriter writer = new BufferedWriter(new FileWriter(outputPath, true)); // append mode
 
             // results contains: 
-            // line 1 → "username,userid"
-            // line 2 → "movie1,movie2,movie3"
+               // error line !!!
             String line = results.get(0);
+                
                 writer.write(line);
                 writer.newLine();
-
+                
             writer.close();
         }
         catch (Exception e)
@@ -53,6 +55,8 @@ public class OutputFileWriter {
     }
     protected void WriteRecommendations(ArrayList<String> results)
     {
+        //clean the file before any writing
+        this.cleanFile(outputPath);
         try
         {
             BufferedWriter writer = new BufferedWriter(new FileWriter(outputPath, true)); // append mode
@@ -61,9 +65,10 @@ public class OutputFileWriter {
             // line 1 → "username,userid"
             // line 2 → "movie1,movie2,movie3"
 
-            for (String line : results) {
-                writer.write(line);
+            for (int i = 0 ; i < results.size(); i++) {
+                writer.write(results.get(i));
                 writer.newLine();
+                if(i%2 !=0) writer.newLine(); //add blank line between users
             }
 
             writer.close();
