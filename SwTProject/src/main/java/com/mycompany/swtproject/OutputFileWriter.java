@@ -37,6 +37,7 @@ public class OutputFileWriter {
         this.cleanFile(outputPath);
         try
         {
+            // can have set true to false to close append mode instead of cleaning the file at the start
             BufferedWriter writer = new BufferedWriter(new FileWriter(outputPath, true)); // append mode
 
             // results contains: 
@@ -118,3 +119,4 @@ public class OutputFileWriter {
     
     
 }
+
