@@ -43,6 +43,7 @@ public class RecommenderTest {
         Recommender rcmnd = new Recommender(movies, users);
         rcmnd.FindAllRecommendations();
         ArrayList<String> Results = rcmnd.getRecommendationsResults();
+        System.out.println("TC1 Results: " + Results);
 
         assertEquals(6, Results.size());
 
@@ -85,6 +86,7 @@ public class RecommenderTest {
         Recommender rcmnd = new Recommender(movies, users);
         rcmnd.FindAllRecommendations();
         ArrayList<String> Results = rcmnd.getRecommendationsResults();
+        System.out.println("TC2 Results: " + Results);
 
         assertEquals(4, Results.size());
 
@@ -117,6 +119,7 @@ public class RecommenderTest {
         Recommender rcmnd = new Recommender(movies, users);
         rcmnd.FindAllRecommendations();
         ArrayList<String> Results = rcmnd.getRecommendationsResults();
+        System.out.println("TC3 Results: " + Results);
 
         assertEquals(2, Results.size());
         assertEquals(Results.get(0), u1.getName() + "," + u1.getUserId());
@@ -145,9 +148,52 @@ public class RecommenderTest {
         Recommender rcmnd = new Recommender(movies, users);
         rcmnd.FindAllRecommendations();
         ArrayList<String> Results = rcmnd.getRecommendationsResults();
+        System.out.println("TC4 Results: " + Results);
 
         assertEquals(2, Results.size());
         assertEquals(Results.get(0), u1.getName() + "," + u1.getUserId());
         assertEquals(Results.get(1), "Spider-Man No Way Home");
     }
+    @Test
+    public void TC5() {
+        ArrayList<User> users = new ArrayList<>();
+        users.add(new User("Ghost User", "111222333", new String[]{"XYZ000"})); // invalid movie ID
+
+        ArrayList<Movie> movies = new ArrayList<>();
+        movies.add(new Movie("Batman Dark Knight", "BDK142", new String[]{"Thriller", "Action"}));
+
+        Recommender R = new Recommender(movies, users);
+        R.FindAllRecommendations();
+        ArrayList<String> results = R.getRecommendationsResults();
+        System.out.println("TC5 Results: " + results);
+
+        assertEquals(2, results.size());
+        assertEquals(users.get(0).getName() + "," + users.get(0).getUserId(), results.get(0));
+        assertEquals("", results.get(1)); // No valid IDs -> no recommendations
+    }
+
+    @Test
+    public void TC6() {
+        ArrayList<User> users = new ArrayList<>();
+        users.add(new User("Order Test", "123450000", new String[]{"M1"}));
+
+        ArrayList<Movie> movies = new ArrayList<>();
+        movies.add(new Movie("Movie1", "M1", new String[]{"Drama"}));
+        movies.add(new Movie("Movie2", "M2", new String[]{"Drama"}));
+        movies.add(new Movie("Movie3", "M3", new String[]{"Drama"}));
+
+        Recommender R = new Recommender(movies, users);
+        R.FindAllRecommendations();
+        ArrayList<String> results = R.getRecommendationsResults();
+        System.out.println("TC6 Results: " + results);
+
+        assertEquals(2, results.size());
+        assertEquals(users.get(0).getName() + "," + users.get(0).getUserId(), results.get(0));
+        // Order should follow movie insertion order
+        assertEquals("Movie2,Movie3", results.get(1));
+    }
+
+
+
+
 }
