@@ -13,10 +13,10 @@ Sci-Fi,Action
 The Godfather,TG972
 Crime,Drama
 
-Shutter Island,S867
+Shutter Island,SI867
 Thriller,Mystery,Drama
 
-The Avengers,TA311
+The Avengers,TA316
 Action,Sci-Fi,Adventure
 
 Joker,J512
@@ -28,17 +28,17 @@ Sci-Fi,Action,Thriller
 Spider-Man No Way Home,SMNWH789
 Action,Fantasy,Adventure
 
-Harry Potter and the Sorcerer's Stone,HPSS101
+Harry Potter and the Sorcerer's Stone,HPSS781
 Fantasy,Adventure
 
-The Lion King,TLK333
+The Lion King,TLK125
 Animation,Drama,Adventure
 
-Finding Nemo,FN222
+Finding Nemo,FN192
 Animation,Family,Adventure
 
-Toy Story,TS001
+Toy Story,TS401
 Animation,Comedy,Family
 
-Avatar,A777
+Avatar,A920
 Sci-Fi,Adventure,Fantasy
