@@ -122,12 +122,14 @@ public class OutputFileWriterTest {
 
         assertEquals(lines.get(0), "Michael Sameh,123456789" );
         assertEquals(lines.get(1), "Shutter Island,The Avengers");
+        assertEquals(lines.get(2), "" );
         
-        assertEquals(lines.get(2), "Michael Hany,987654321" );
-        assertEquals(lines.get(3), "Batman Dark Knight,The Joker");
-
-        assertEquals(lines.get(4), "Adham Ahmed,12345678A" );
-        assertEquals(lines.get(5), "Batman Dark Knight,Shutter Island");
+        assertEquals(lines.get(3), "Michael Hany,987654321" );
+        assertEquals(lines.get(4), "Batman Dark Knight,The Joker");
+        assertEquals(lines.get(5), "" );
+        
+        assertEquals(lines.get(6), "Adham Ahmed,12345678A" );
+        assertEquals(lines.get(7), "Batman Dark Knight,Shutter Island");
     }
     @Test
     public void TC4() throws Exception {
