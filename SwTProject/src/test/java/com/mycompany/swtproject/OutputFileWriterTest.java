@@ -155,7 +155,7 @@ public class OutputFileWriterTest {
     public void TC5() throws Exception {
         
        ArrayList<Movie> movies = new ArrayList<>();
-        Movie m1 = new Movie("Batman Dark Knight", "BDK112", new String[]{"Thriller", "Action"});
+        Movie m1 = new Movie("Batman Dark Knight", "BDK121", new String[]{"Thriller", "Action"});
         movies.add(m1);
         MovieValidator MV = new MovieValidator(movies);
         MV.Validate();
