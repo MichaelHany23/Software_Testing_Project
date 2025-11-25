@@ -91,6 +91,86 @@ public class MovieFilereaderTest {
         //reset
         System.setOut(originalOut);
     }
-    
-    
+
+    @Test
+    public void TC4()
+    {
+        // Test missing movie ID (only title provided)
+        String TestData = "The Matrix\nAction,Sci-Fi";
+        BufferedReader BR = new BufferedReader(new StringReader(TestData));
+
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        PrintStream originalOut = System.out;
+        System.setOut(new PrintStream(outContent));
+
+        MovieFilereader reader = new MovieFilereader();
+        reader.ReadMovies(BR); // should throw "missing info"
+
+        assertTrue(outContent.toString().contains("Exception: missing info"));
+        System.setOut(originalOut);
+    }
+
+    @Test
+    public void TC5()
+    {
+        // Test missing genres line (title & ID provided but no genres)
+        String TestData = "Inception,INC100";
+        BufferedReader BR = new BufferedReader(new StringReader(TestData));
+
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        PrintStream originalOut = System.out;
+        System.setOut(new PrintStream(outContent));
+
+        MovieFilereader reader = new MovieFilereader();
+        reader.ReadMovies(BR); // should throw "missing genres"
+
+        assertTrue(outContent.toString().contains("Exception: missing genres"));
+        System.setOut(originalOut);
+    }
+
+    @Test
+    public void TC6()
+    {
+        // blank line between movies (should skip)
+        String TestData = "Batman Dark Knight,BDK142\nAction,Thriller\n\nThe Matrix,TM123\nAction,Sci-Fi";
+        BufferedReader BR = new BufferedReader(new StringReader(TestData));
+
+        MovieFilereader reader = new MovieFilereader();
+        ArrayList<Movie> movies = reader.ReadMovies(BR);
+
+        assertEquals(2, movies.size());
+        assertEquals("Batman Dark Knight", movies.get(0).getMovieTitle());
+        assertEquals("BDK142", movies.get(0).getMovieId());
+        assertEquals("The Matrix", movies.get(1).getMovieTitle());
+    }
+
+    @Test
+    public void TC7()
+    {
+        // trailing spaces should be trimmed
+        String TestData = "  Avatar  ,  AV100  \nAction,Adventure";
+        BufferedReader BR = new BufferedReader(new StringReader(TestData));
+
+        MovieFilereader reader = new MovieFilereader();
+        ArrayList<Movie> movies = reader.ReadMovies(BR);
+
+        Movie m = movies.get(0);
+        assertEquals("Avatar", m.getMovieTitle());
+        assertEquals("AV100", m.getMovieId());
+        assertEquals(2, m.getGenres().length);
+    }
+
+    @Test
+    public void TC8()
+    {
+        // multiple genre entries
+        String TestData = "Titanic,TT999\nDrama,Romance,History";
+        BufferedReader BR = new BufferedReader(new StringReader(TestData));
+
+        MovieFilereader reader = new MovieFilereader();
+        ArrayList<Movie> movies = reader.ReadMovies(BR);
+
+        assertEquals(1, movies.size());
+        assertEquals(3, movies.get(0).getGenres().length);
+    }
 }

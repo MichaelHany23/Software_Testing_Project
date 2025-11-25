@@ -331,9 +331,79 @@ public class UserValidatorTest {
         assertEquals(UV.getUser_errors().get(0) ,"ERROR: User ID {" + u3.getUserId() + "} is wrong");
         assertEquals(UV.getUser_errors().get(1) ,"ERROR: User ID {" + u5.getUserId() + "} is wrong");
     }
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+    @Test
+    public void TC16()
+    {
+        // wrong name: empty string
+        ArrayList<User> users = new ArrayList<>();
+        User u1 = new User();
+        u1.setName("");
+        u1.setUserId("123456789");
+        String[] likedMovieIds = {"A123"};
+        u1.setLikedMovieIds(likedMovieIds);
+        users.add(u1);
+
+        UserValidator UV = new UserValidator(users);
+        UV.Validate();
+
+        assertFalse(UV.ErrorIsEmpty());
+        assertEquals(UV.getUser_errors().get(0) , "ERROR: User Name {" + u1.getName() + "} is wrong");
+    }
+
+    @Test
+    public void TC17()
+    {
+        // wrong name: starts with space
+        ArrayList<User> users = new ArrayList<>();
+        User u1 = new User();
+        u1.setName(" Michael");
+        u1.setUserId("123456789");
+        String[] likedMovieIds = {"A123"};
+        u1.setLikedMovieIds(likedMovieIds);
+        users.add(u1);
+
+        UserValidator UV = new UserValidator(users);
+        UV.Validate();
+
+        assertFalse(UV.ErrorIsEmpty());
+        assertEquals(UV.getUser_errors().get(0) , "ERROR: User Name {" + u1.getName() + "} is wrong");
+    }
+
+    @Test
+    public void TC18()
+    {
+        // wrong id: empty userId
+        ArrayList<User> users = new ArrayList<>();
+        User u1 = new User();
+        u1.setName("Michael");
+        u1.setUserId("");
+        String[] likedMovieIds = {"BDK123"};
+        u1.setLikedMovieIds(likedMovieIds);
+        users.add(u1);
+
+        UserValidator UV = new UserValidator(users);
+        UV.Validate();
+
+        assertFalse(UV.ErrorIsEmpty());
+        assertEquals(UV.getUser_errors().get(0) , "ERROR: User ID {" + u1.getUserId() + "} is wrong");
+    }
+
+    @Test
+    public void TC19()
+    {
+        // correct id: ends with lowercase letter
+        ArrayList<User> users = new ArrayList<>();
+        User u1 = new User();
+        u1.setName("Michael");
+        u1.setUserId("12345678a");
+        String[] likedMovieIds = {"BDK123"};
+        u1.setLikedMovieIds(likedMovieIds);
+        users.add(u1);
+
+        UserValidator UV = new UserValidator(users);
+        UV.Validate();
+
+        assertTrue(UV.ErrorIsEmpty());
+    }
+
 }

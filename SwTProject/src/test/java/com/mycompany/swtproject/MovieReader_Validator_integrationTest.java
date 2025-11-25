@@ -62,12 +62,34 @@ public class MovieReader_Validator_integrationTest {
         assertEquals(errors.get(1) , "ERROR: Movie Title {Shutter island} wrong");
         assertEquals(errors.get(2) , "ERROR:  Movie Id numbers {TA300} arent unique");
         assertEquals(errors.get(3) , "ERROR: Movie Id letters {JK501} wrong");
-        
-        
-        
-      
+
     }
-    
+    @Test
+    public void TC2()
+    {
+        // Valid input file (no validation errors expected)
+        String filename = "Movies_JunitTestValid.txt";
+
+        MovieFilereader reader = new MovieFilereader();
+        MovieValidator validator = new MovieValidator(reader.ReadMovies(filename));
+        validator.Validate();
+
+        ArrayList<String> errors = validator.getMovie_errors();
+        for (String error : errors) {
+            System.out.println("Validation error: " + error);
+        }
+
+        // Expect no errors
+        assertTrue(validator.ErrorIsEmpty(), "Expected no errors for valid movies");
+        assertEquals(errors.size(), 0);
+
+        // Optional assertions on parsed data to verify reader correctness
+        ArrayList<Movie> movies = validator.getMovies();
+        assertNotNull(movies);
+        assertEquals(8, movies.size());
+        assertEquals("Batman Dark Knight", movies.get(0).getMovieTitle());
+        assertEquals("BDK142", movies.get(0).getMovieId());
+    }
     
 }
 
