@@ -10,15 +10,27 @@ import java.util.ArrayList;
  */
 public class Application {
     
+    // this application class represents the integration of all
+    // the required & used modulus
+    
+    // application consist of :
+    //recommender 
+    //Movie / User File reader 
+    // output file writer 
+    
     private UserFilereader frUser ;
     private MovieFilereader frMovie ;
     private Recommender rcmnd ;
     private OutputFileWriter fw;
+    
     Application(MovieFilereader frMovie,UserFilereader frUser )  
     {
         this.frUser=frUser;
         this.frMovie=frMovie;
+        fw= new OutputFileWriter();
     }
+
+    // the fucntion called 
     public void RecommenderApp(String MoviePath , String UserPath , String OutputPath)
     {
         //read files
@@ -28,13 +40,18 @@ public class Application {
         UserValidator uv = new UserValidator(users);
         MovieValidator mv = new MovieValidator(movies);
         
+        // set your path before any action written !!
+        this.fw.setOutputPath(OutputPath);
         
-        if(uv.getUser_errors().size() != 0) fw.WriteFirstError(uv.getUser_errors());
-        if(mv.getMovie_errors().size() != 0) fw.WriteFirstError(mv.getMovie_errors());
+        mv.Validate();
+        uv.Validate();
+        
+        if(uv.getUser_errors().size() != 0) { fw.WriteFirstError(uv.getUser_errors()); return; };
+        if(mv.getMovie_errors().size() != 0) {fw.WriteFirstError(mv.getMovie_errors()); return; };
         
         //get recommendations and set output path
         this.rcmnd = new Recommender(movies, users);
-        this.fw.setOutputPath(OutputPath);
+       
         //recommendation results
         rcmnd.FindAllRecommendations();
         
