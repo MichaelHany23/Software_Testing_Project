@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UserValidator.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">SwTProject</a> &gt; <a href="index.source.html" class="el_package">com.mycompany.swtproject</a> &gt; <span class="el_source">UserValidator.java</span></div><h1>UserValidator.java</h1><pre class="source lang-java linenums">/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package com.mycompany.swtproject;
+
+import java.util.ArrayList;
+
+/**
+ *
+ * @author Michael
+ */
+public class UserValidator {
+
+    ArrayList&lt;String&gt; User_errors;
+    ArrayList&lt;User&gt; users;
+
+    UserValidator(ArrayList&lt;User&gt; users)
+<span class="fc" id="L19">    {</span>
+<span class="fc" id="L20">        this.users = users;</span>
+<span class="fc" id="L21">        User_errors = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L22">    }</span>
+
+    public void Validate()
+    {
+<span class="fc" id="L26">        UserValidate();</span>
+<span class="fc" id="L27">    }</span>
+
+    // getter for examining errors
+    public ArrayList&lt;String&gt; getUser_errors() {
+<span class="fc" id="L31">        return User_errors;</span>
+    }
+
+    public boolean ErrorIsEmpty()
+    {
+<span class="fc" id="L36">        return User_errors.isEmpty();</span>
+    }
+
+    public ArrayList&lt;User&gt; getUsers() {
+<span class="pc bpc" id="L40" title="1 of 2 branches missed.">        if (ErrorIsEmpty()) return users;</span>
+<span class="nc" id="L41">        return null;</span>
+    }
+
+
+    private void UserValidate()
+    {
+        // It must be Alphabetic characters and Spaces. The name should not start with space.
+<span class="fc bfc" id="L48" title="All 2 branches covered.">        for (int i = 0; i &lt; users.size(); i++)</span>
+        {
+<span class="fc" id="L50">            boolean invalid = false; // flag used within loop to skip outer loop for wrong users</span>
+
+            // USERNAME VALIDATION
+<span class="fc" id="L53">            String currentUsername = users.get(i).getName();</span>
+
+            // check if username is null or empty
+<span class="fc bfc" id="L56" title="All 4 branches covered.">            if (currentUsername == null || currentUsername.isEmpty())</span>
+            {
+<span class="fc" id="L58">                User_errors.add(&quot;ERROR: User Name {&quot; + currentUsername + &quot;} is wrong&quot;);</span>
+<span class="fc" id="L59">                continue;</span>
+            }
+
+            // shouldn't start with space
+<span class="fc bfc" id="L63" title="All 2 branches covered.">            if (currentUsername.charAt(0) == ' ')</span>
+            {
+<span class="fc" id="L65">                User_errors.add(&quot;ERROR: User Name {&quot; + currentUsername + &quot;} is wrong&quot;);</span>
+<span class="fc" id="L66">                continue;</span>
+            }
+
+            // all characters must be alphabetic or space
+<span class="fc bfc" id="L70" title="All 2 branches covered.">            for (int j = 0; j &lt; currentUsername.length(); j++)</span>
+            {
+<span class="fc" id="L72">                char c = currentUsername.charAt(j);</span>
+<span class="fc bfc" id="L73" title="All 4 branches covered.">                if (!Character.isAlphabetic(c) &amp;&amp; c != ' ')</span>
+                {
+<span class="fc" id="L75">                    User_errors.add(&quot;ERROR: User Name {&quot; + currentUsername + &quot;} is wrong&quot;);</span>
+<span class="fc" id="L76">                    invalid = true;</span>
+<span class="fc" id="L77">                    break;</span>
+                }
+            }
+<span class="fc bfc" id="L80" title="All 2 branches covered.">            if (invalid) continue;</span>
+
+            ///////////////////////////////
+            // USER ID VALIDATION
+
+<span class="fc" id="L85">            String currentid = users.get(i).getUserId();</span>
+
+            // check if userId is null or empty
+<span class="fc bfc" id="L88" title="All 4 branches covered.">            if (currentid == null || currentid.isEmpty())</span>
+            {
+<span class="fc" id="L90">                User_errors.add(&quot;ERROR: User ID {&quot; + currentid + &quot;} is wrong&quot;);</span>
+<span class="fc" id="L91">                continue;</span>
+            }
+
+            // rule 1: 9 characters exactly
+<span class="fc bfc" id="L95" title="All 2 branches covered.">            if (currentid.length() != 9)</span>
+            {
+<span class="fc" id="L97">                User_errors.add(&quot;ERROR: User ID {&quot; + currentid + &quot;} is wrong&quot;);</span>
+<span class="fc" id="L98">                continue;</span>
+            }
+
+            // rule 2: must start with digit
+<span class="fc bfc" id="L102" title="All 2 branches covered.">            if (!Character.isDigit(currentid.charAt(0)))</span>
+            {
+<span class="fc" id="L104">                User_errors.add(&quot;ERROR: User ID {&quot; + currentid + &quot;} is wrong&quot;);</span>
+<span class="fc" id="L105">                continue;</span>
+            }
+
+            // rule 3: must be alphanumeric and may end with only one alphabet
+<span class="fc bfc" id="L109" title="All 2 branches covered.">            for (int j = 1; j &lt; currentid.length(); j++)</span>
+            {
+<span class="fc" id="L111">                char c = currentid.charAt(j);</span>
+
+<span class="fc bfc" id="L113" title="All 4 branches covered.">                if (!Character.isAlphabetic(c) &amp;&amp; !Character.isDigit(c))</span>
+                {
+<span class="fc" id="L115">                    User_errors.add(&quot;ERROR: User ID {&quot; + currentid + &quot;} is wrong&quot;);</span>
+<span class="fc" id="L116">                    invalid = true;</span>
+<span class="fc" id="L117">                    break;</span>
+                }
+
+<span class="fc bfc" id="L120" title="All 4 branches covered.">                if (j == currentid.length() - 1 &amp;&amp; Character.isAlphabetic(c))</span>
+                {
+                    // ends with letter -&gt; ensure previous is not a letter
+<span class="fc bfc" id="L123" title="All 2 branches covered.">                    if (Character.isAlphabetic(currentid.charAt(j - 1)))</span>
+                    {
+<span class="fc" id="L125">                        User_errors.add(&quot;ERROR: User ID {&quot; + currentid + &quot;} is wrong&quot;);</span>
+<span class="fc" id="L126">                        invalid = true;</span>
+<span class="fc" id="L127">                        break;</span>
+                    }
+                }
+            }
+<span class="fc bfc" id="L131" title="All 2 branches covered.">            if (invalid) continue;</span>
+
+            // rule 4: must be unique (no duplicates)
+<span class="fc bfc" id="L134" title="All 2 branches covered.">            for (int j = i - 1; j &gt;= 0; j--)</span>
+            {
+<span class="fc" id="L136">                String previousId = users.get(j).getUserId();</span>
+<span class="pc bpc" id="L137" title="1 of 4 branches missed.">                if (previousId != null &amp;&amp; currentid.equals(previousId))</span>
+                {
+<span class="fc" id="L139">                    User_errors.add(&quot;ERROR: User ID {&quot; + currentid + &quot;} is wrong&quot;);</span>
+<span class="fc" id="L140">                    invalid = true;</span>
+<span class="fc" id="L141">                    break;</span>
+                }
+            }
+<span class="fc bfc" id="L144" title="All 2 branches covered.">            if (invalid) continue;</span>
+        }
+<span class="fc" id="L146">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>OutputFileWriter.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">SwTProject</a> &gt; <a href="index.source.html" class="el_package">com.mycompany.swtproject</a> &gt; <span class="el_source">OutputFileWriter.java</span></div><h1>OutputFileWriter.java</h1><pre class="source lang-java linenums">/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package com.mycompany.swtproject;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.util.ArrayList;
+
+
+/**
+ *
+ * @author Michael
+ */
+public class OutputFileWriter {
+    
+    
+    private String outputPath;
+    
+    
+    OutputFileWriter()
+<span class="fc" id="L23">    {</span>
+        
+<span class="fc" id="L25">    }</span>
+    OutputFileWriter(String outputpath)
+<span class="nc" id="L27">    {</span>
+<span class="nc" id="L28">        this.outputPath = outputpath;</span>
+<span class="nc" id="L29">    }</span>
+
+    public void setOutputPath(String outputPath) {
+<span class="fc" id="L32">        this.outputPath = outputPath;</span>
+<span class="fc" id="L33">    }</span>
+    protected void WriteFirstError(ArrayList&lt;String&gt; results)
+    {   
+        //clean the file before any writing
+<span class="fc" id="L37">        this.cleanFile(outputPath);</span>
+        try
+        {
+            //can set the append mode to false instead of cleanfile calling
+<span class="fc" id="L41">            BufferedWriter writer = new BufferedWriter(new FileWriter(outputPath, true)); // append mode</span>
+
+            // results contains: 
+               // error line !!!
+<span class="fc" id="L45">            String line = results.get(0);</span>
+                
+<span class="fc" id="L47">                writer.write(line);</span>
+<span class="fc" id="L48">                writer.newLine();</span>
+                
+<span class="fc" id="L50">            writer.close();</span>
+        }
+<span class="nc" id="L52">        catch (Exception e)</span>
+        {
+<span class="nc" id="L54">            e.printStackTrace();</span>
+<span class="fc" id="L55">        }</span>
+<span class="fc" id="L56">    }</span>
+    protected void WriteRecommendations(ArrayList&lt;String&gt; results)
+    {
+        //clean the file before any writing
+<span class="fc" id="L60">        this.cleanFile(outputPath);</span>
+        try
+        {
+<span class="fc" id="L63">            BufferedWriter writer = new BufferedWriter(new FileWriter(outputPath, true)); // append mode</span>
+
+            // results contains: 
+            // line 1 → &quot;username,userid&quot;
+            // line 2 → &quot;movie1,movie2,movie3&quot;
+
+<span class="fc bfc" id="L69" title="All 2 branches covered.">            for (int i = 0 ; i &lt; results.size(); i++) {</span>
+<span class="fc" id="L70">                writer.write(results.get(i));</span>
+<span class="fc" id="L71">                writer.newLine();</span>
+<span class="fc bfc" id="L72" title="All 2 branches covered.">                if(i%2 !=0) writer.newLine(); //add blank line between users</span>
+            }
+
+<span class="fc" id="L75">            writer.close();</span>
+        }
+<span class="nc" id="L77">        catch (Exception e)</span>
+        {
+<span class="nc" id="L79">            e.printStackTrace();</span>
+<span class="fc" id="L80">        }</span>
+<span class="fc" id="L81">    } </span>
+
+    public void cleanFile(String filePath) {
+    
+<span class="fc" id="L85">        try (FileWriter fw = new FileWriter(filePath, false)) {</span>
+<span class="fc" id="L86">        fw.write(&quot;&quot;); </span>
+<span class="nc" id="L87">        } catch (Exception e) {</span>
+<span class="nc" id="L88">            e.printStackTrace();</span>
+<span class="fc" id="L89">        }</span>
+<span class="fc" id="L90">}</span>
+    
+   /* public void WriteRecommendations(User U , ArrayList&lt;String&gt; recommendedTitles)
+    {
+        
+        try
+        {
+            BufferedWriter writer = new BufferedWriter(new FileWriter(outputPath, true)); // true to append not delete
+            
+            writer.write(U.getName()+&quot;,&quot;+U.getUserId());
+            writer.newLine();
+            for(int i = 0 ; i &lt; recommendedTitles.size()-1 ; i++)
+            {
+                 writer.write(recommendedTitles.get(i) + &quot;,&quot;);
+            }
+            writer.write(recommendedTitles.getLast()); // without the comma for laaast element !
+            
+            
+             writer.newLine();
+             writer.close();
+        }
+        
+        catch(Exception e)
+        {
+            System.out.println(&quot; error &quot;);
+        }
+        
+        
+    }*/
+    
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

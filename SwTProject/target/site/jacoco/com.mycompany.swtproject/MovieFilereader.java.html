@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MovieFilereader.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">SwTProject</a> &gt; <a href="index.source.html" class="el_package">com.mycompany.swtproject</a> &gt; <span class="el_source">MovieFilereader.java</span></div><h1>MovieFilereader.java</h1><pre class="source lang-java linenums">/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package com.mycompany.swtproject;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.util.ArrayList;
+/**
+ *
+ * @author Michael
+ */
+<span class="fc" id="L13">public class MovieFilereader {</span>
+    
+    
+    public ArrayList&lt;Movie&gt; ReadMovies(String filename){
+      String myline;
+<span class="fc" id="L18">      ArrayList&lt;Movie&gt; movies = new ArrayList&lt;&gt;();</span>
+      try
+      {
+<span class="fc" id="L21">         BufferedReader reader = new BufferedReader(new FileReader(filename));</span>
+
+<span class="fc bfc" id="L23" title="All 2 branches covered.">         while((myline = reader.readLine()) != null)</span>
+         {
+             //skip blank line
+<span class="fc bfc" id="L26" title="All 4 branches covered.">            while (myline != null &amp;&amp; myline.trim().isEmpty()) {</span>
+<span class="fc" id="L27">                 myline = reader.readLine();</span>
+                 }
+<span class="fc bfc" id="L29" title="All 2 branches covered.">                if (myline == null) break;</span>
+             
+             
+             
+<span class="fc" id="L33">             String movieName = myline; // take current line</span>
+<span class="fc" id="L34">             String genres = reader.readLine(); // read next line genres &amp; shift to the next movie</span>
+             
+<span class="pc bpc" id="L36" title="1 of 2 branches missed.">             if (genres == null) // there must be atleast 1 genre</span>
+             {
+<span class="nc" id="L38">                 throw new Exception (&quot;missing genres , at least 1&quot;); </span>
+             }
+             //movieName=movieName.trim(); // remove spaces
+             //genres=genres.trim();
+             
+        
+             
+             // create movie object and assign the related infos
+<span class="fc" id="L46">             Movie CurrentMovie = new Movie();</span>
+             
+<span class="fc" id="L48">             String[] MovieInfo = movieName.split(&quot;,&quot;);</span>
+<span class="pc bpc" id="L49" title="1 of 2 branches missed.">             if(MovieInfo.length != 2) {throw new Exception(&quot;missing info&quot;) ; }</span>
+             
+             
+<span class="fc" id="L52">             CurrentMovie.setMovieTitle(MovieInfo[0].trim());</span>
+<span class="fc" id="L53">             CurrentMovie.setMovieId(MovieInfo[1].trim());</span>
+<span class="fc" id="L54">             CurrentMovie.setGenres(genres.split(&quot;,&quot;));</span>
+             
+<span class="fc" id="L56">             movies.add(CurrentMovie); //add the current movie to the arraylist that will be returned</span>
+             
+<span class="fc" id="L58">         }</span>
+         
+<span class="fc" id="L60">         reader.close();</span>
+      }
+<span class="nc" id="L62">      catch(Exception e)</span>
+      {
+<span class="nc" id="L64">         System.out.println(&quot;Exception: &quot; + e.getMessage());</span>
+<span class="fc" id="L65">      }</span>
+      
+<span class="fc" id="L67">      return movies ;</span>
+   }
+    
+    //// READMOVIES function WITH Buffered reader instead of giving the direct filename
+    // BufferedReader 
+    // Flexibility &amp; used in MovieFilereader test
+    public ArrayList&lt;Movie&gt; ReadMovies(BufferedReader reader) {
+    String myline;
+<span class="fc" id="L75">    ArrayList&lt;Movie&gt; movies = new ArrayList&lt;&gt;();</span>
+    try {
+<span class="fc bfc" id="L77" title="All 2 branches covered.">        while ((myline = reader.readLine()) != null) {</span>
+            // skip blank lines
+<span class="pc bpc" id="L79" title="1 of 4 branches missed.">            while (myline != null &amp;&amp; myline.trim().isEmpty()) {</span>
+<span class="fc" id="L80">                myline = reader.readLine();</span>
+            }
+<span class="pc bpc" id="L82" title="1 of 2 branches missed.">            if (myline == null) break;</span>
+
+<span class="fc" id="L84">            String movieName = myline; // current line</span>
+<span class="fc" id="L85">            String genres = reader.readLine(); // next line for genres</span>
+
+<span class="fc bfc" id="L87" title="All 2 branches covered.">            if (genres == null) {</span>
+<span class="fc" id="L88">                throw new Exception(&quot;missing genres, at least 1&quot;);</span>
+            }
+
+<span class="fc" id="L91">            Movie CurrentMovie = new Movie();</span>
+<span class="fc" id="L92">            String[] MovieInfo = movieName.split(&quot;,&quot;);</span>
+<span class="fc bfc" id="L93" title="All 2 branches covered.">            if (MovieInfo.length != 2) {</span>
+<span class="fc" id="L94">                throw new Exception(&quot;missing info&quot;);</span>
+            }
+
+<span class="fc" id="L97">            CurrentMovie.setMovieTitle(MovieInfo[0].trim());</span>
+<span class="fc" id="L98">            CurrentMovie.setMovieId(MovieInfo[1].trim());</span>
+<span class="fc" id="L99">            CurrentMovie.setGenres(genres.split(&quot;,&quot;));</span>
+
+<span class="fc" id="L101">            movies.add(CurrentMovie);</span>
+<span class="fc" id="L102">        }</span>
+<span class="fc" id="L103">    } catch (Exception e) {</span>
+<span class="fc" id="L104">        System.out.println(&quot;Exception: &quot; + e.getMessage());</span>
+<span class="fc" id="L105">    }</span>
+<span class="fc" id="L106">    return movies;</span>
+}
+
+    
+};
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
