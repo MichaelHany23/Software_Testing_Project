@@ -17,7 +17,7 @@ public class Recommender {
     private ArrayList<User> users = new ArrayList<>(); // all users from file
     private ArrayList<String> recommendationsResults = new ArrayList<>();
     
-    Recommender( ArrayList<Movie> Filemovies , ArrayList<User> Fileusers)
+    public Recommender( ArrayList<Movie> Filemovies , ArrayList<User> Fileusers)
     {
         this.movies = Filemovies ;
         this.users = Fileusers ;
@@ -48,7 +48,7 @@ public class Recommender {
         }
      
     }
-    private String GetRecommendations_OnUser(User U)
+    public String GetRecommendations_OnUser(User U)
     {
         //used per each user 
         return recommendMovies(U);

@@ -15,7 +15,7 @@ public class UserValidator {
     ArrayList<String> User_errors;
     ArrayList<User> users;
 
-    UserValidator(ArrayList<User> users)
+  public  UserValidator(ArrayList<User> users)
     {
         this.users = users;
         User_errors = new ArrayList<>();

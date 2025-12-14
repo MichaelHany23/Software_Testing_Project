@@ -14,7 +14,7 @@ public class MovieValidator {
     private ArrayList<String> Movie_errors;
     private ArrayList<Movie> movies;
    
-    MovieValidator(ArrayList<Movie> movies)
+    public MovieValidator(ArrayList<Movie> movies)
     {
         this.movies = movies;
         Movie_errors = new ArrayList<>();
