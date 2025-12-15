@@ -1,0 +1,10 @@
+# Maven build output
+target/
+
+# IntelliJ / IDE files
+.idea/
+*.iml
+
+# Accidental junk files
+how*
+tatus
