@@ -1,0 +1,21 @@
+# Build artifacts
+target/
+*.class
+
+# IDE files
+.vscode/
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Maven
+.m2/
+
+# Local environment
+.env
+*.log
