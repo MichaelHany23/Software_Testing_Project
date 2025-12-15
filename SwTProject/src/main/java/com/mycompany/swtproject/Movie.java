@@ -18,7 +18,7 @@ public class Movie {
      {
          
      };
-     Movie(String MovieTitle ,String MovieId ,String[] genres )
+     public Movie(String MovieTitle, String MovieId, String[] genres)
      {
          this.MovieTitle=MovieTitle;
          this.MovieId = MovieId;
