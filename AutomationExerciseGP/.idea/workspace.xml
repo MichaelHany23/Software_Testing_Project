@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="885f4249-b321-4028-89fb-6fdbdc083bf9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/java/BaseTest/BaseTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Pages/AccountCreation/AccountCreated.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Pages/AccountCreation/AccountInfoPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Pages/AccountCreation/LogedInPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Pages/AccountCreation/LoginPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Pages/DeleteAccPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Pages/HomePage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Test/AccountCreationTests/AccountCreatedTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Test/AccountCreationTests/AccountInfoPageTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Test/AccountCreationTests/DeleteAccTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Test/AccountCreationTests/HomeAccCreationTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Test/AccountCreationTests/LoginPageTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Tests/TC1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Tests/TC2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Tests/TC3.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="package-info" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="35ymICeeIb8xBgrJDWvQSqHCnZw" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;TestNG.AccountCreatedTest.SetFields.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.AccountCreatedTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.AccountInfoPageTest.SetFields.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.AccountInfoPageTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.AllStepsTest.SuccessfulSignUpScenario.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.AllStepsTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.HomeAccCreationTest.SetFields.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.HomeAccCreationTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.LoginPageTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.TC1.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.TC2.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.TC3.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.Test.AccountCreationTests.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;MS-Swt&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/ASUS/Documents/GitHub/Software_Testing_Project/AutomationExerciseGP/src/main/java/org/example/Main.java&quot;
+  }
+}</component>
+  <component name="RunManager" selected="TestNG.TC3">
+    <configuration name="LoginPageTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="AutomationExerciseGP" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Test.AccountCreationTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Test.AccountCreationTests" />
+      <option name="MAIN_CLASS_NAME" value="Test.AccountCreationTests.LoginPageTest" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TC1" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="AutomationExerciseGP" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Tests" />
+      <option name="MAIN_CLASS_NAME" value="Tests.TC1" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TC1.SuccessfulSignUpScenario" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="AutomationExerciseGP" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Tests" />
+      <option name="MAIN_CLASS_NAME" value="Tests.TC1" />
+      <option name="METHOD_NAME" value="SuccessfulSignUpScenario" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TC2" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="AutomationExerciseGP" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Tests" />
+      <option name="MAIN_CLASS_NAME" value="Tests.TC2" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TC3" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="AutomationExerciseGP" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Tests" />
+      <option name="MAIN_CLASS_NAME" value="Tests.TC3" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="TestNG.TC3" />
+        <item itemvalue="TestNG.TC2" />
+        <item itemvalue="TestNG.TC1" />
+        <item itemvalue="TestNG.TC1.SuccessfulSignUpScenario" />
+        <item itemvalue="TestNG.LoginPageTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="885f4249-b321-4028-89fb-6fdbdc083bf9" name="Changes" comment="" />
+      <created>1764090607923</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1764090607923</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/Main.java</url>
+          <line>9</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
