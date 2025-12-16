@@ -154,7 +154,6 @@ public class MovieValidator_DFT {
                 new com.mycompany.swtproject.MovieValidator(movies);
         validator.Validate();
 
-        // current behavior: titles with no alphabetic parts are considered valid if id length matches (3)
         assertTrue(validator.ErrorIsEmpty());
         assertNotNull(validator.getMovies());
     }
