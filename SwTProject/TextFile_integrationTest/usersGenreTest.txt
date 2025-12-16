@@ -1,8 +1,8 @@
-alice wonder,A100001
-AM100
+Alice Wonder,12345678A
+AMO100
 
-bob builder,B200002
-SF100
+Bob Builder,23456789B
+SFM100
 
-charlie brown,C300003
-AM100,SF100
+Charlie Brown,34567890C
+AMO100,SFM100

@@ -1,0 +1,8 @@
+Batman Dark Knight, BDK142
+Action,Thriller
+
+Spiderman Home Coming, SHC123
+Action,Adventure
+
+The Notebook, TN456
+Romance,Drama
