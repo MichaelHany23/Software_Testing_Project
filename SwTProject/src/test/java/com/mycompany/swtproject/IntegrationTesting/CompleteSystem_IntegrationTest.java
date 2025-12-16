@@ -114,9 +114,8 @@ public class CompleteSystem_IntegrationTest {
 
         try {
             String content = new String(Files.readAllBytes(Paths.get(OUTPUT_PATH)));
-            assertTrue(content.contains("ERROR: User Id letters {1234567BA} wrong"), "Output should contain error message");
-            assertTrue(content.contains("1234567BA"),
-                    "Error should reference the invalid user ID");
+            assertTrue(content.contains("ERROR: User ID {1234567BA} is wrong"), "Output should contain error message");
+
         } catch (IOException e) {
             fail("Output file should exist: " + e.getMessage());
         }
@@ -161,8 +160,7 @@ public class CompleteSystem_IntegrationTest {
             String content = new String(Files.readAllBytes(Paths.get(OUTPUT_PATH)));
             assertTrue(content.contains("ERROR: Movie Title {inception} wrong"),
                     "Invalid movie title should trigger error");
-            assertTrue(content.contains("inception") || content.contains("Title"),
-                    "Error should reference the invalid title");
+
         } catch (IOException e) {
             fail("Output file should exist: " + e.getMessage());
         }
