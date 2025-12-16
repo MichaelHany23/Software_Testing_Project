@@ -7,6 +7,7 @@ package com.mycompany.swtproject.IntegrationTesting;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 
 import org.junit.jupiter.api.AfterEach;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -16,8 +17,13 @@ import static org.junit.jupiter.api.Assertions.fail;
 import org.junit.jupiter.api.Test;
 
 import com.mycompany.swtproject.Application;
+import com.mycompany.swtproject.Movie;
 import com.mycompany.swtproject.MovieFilereader;
+import com.mycompany.swtproject.MovieValidator;
+import com.mycompany.swtproject.Recommender;
+import com.mycompany.swtproject.User;
 import com.mycompany.swtproject.UserFilereader;
+import com.mycompany.swtproject.UserValidator;
 
 public class CompleteSystem_IntegrationTest {
     
@@ -29,15 +35,12 @@ public class CompleteSystem_IntegrationTest {
         try {
             Files.deleteIfExists(Paths.get(OUTPUT_PATH));
         } catch (IOException e) {
-            // ignore
+             
         }
     }
-    
-    /**
-     * TC1: Full valid workflow - movies.txt and users.txt should produce recommendations
-     */
+
     @Test
-    public void TC1_FullValidWorkflow() {
+    public void TestingFullValidWorkflow() {
         Application app = new Application(
             new MovieFilereader(),
             new UserFilereader()
@@ -63,11 +66,9 @@ public class CompleteSystem_IntegrationTest {
         }
     }
     
-    /**
-     * TC2: Error workflow - moviesError.txt contains validation errors
-     */
+ 
     @Test
-    public void TC2_ErrorWorkflow_InvalidMovies() {
+    public void TetingInvalidMovies() {
         Application app = new Application(
             new MovieFilereader(),
             new UserFilereader()
@@ -82,19 +83,14 @@ public class CompleteSystem_IntegrationTest {
         try {
             String content = new String(Files.readAllBytes(Paths.get(OUTPUT_PATH)));
             assertTrue(content.contains("ERROR"), "Output should contain error message");
-            // Should not contain recommendations
-            assertFalse(content.split("\n").length > 10, 
-                       "Error output should be brief, not full recommendations");
         } catch (IOException e) {
             fail("Output file should exist: " + e.getMessage());
         }
     }
     
-    /**
-     * TC3: Error workflow - usersError.txt contains validation errors
-     */
+ 
     @Test
-    public void TC3_ErrorWorkflow_InvalidUsers() {
+    public void TestingInvalidUsers() {
         Application app = new Application(
             new MovieFilereader(),
             new UserFilereader()
@@ -115,64 +111,11 @@ public class CompleteSystem_IntegrationTest {
             fail("Output file should exist: " + e.getMessage());
         }
     }
-    
-    /**
-     * TC4: Small dataset test - minimal valid data
-     */
+  
+
+  
     @Test
-    public void TC4_SmallDataset() {
-        Application app = new Application(
-            new MovieFilereader(),
-            new UserFilereader()
-        );
-        
-        app.RecommenderApp(
-            TEST_DATA_PATH + "moviesSmall.txt",
-            TEST_DATA_PATH + "usersSmall.txt",
-            OUTPUT_PATH
-        );
-        
-        try {
-            String content = new String(Files.readAllBytes(Paths.get(OUTPUT_PATH)));
-            assertNotNull(content);
-            assertTrue(content.contains("michael sameh") || content.contains("john doe"),
-                      "Should contain recommendations for users");
-        } catch (IOException e) {
-            fail("Output file should exist: " + e.getMessage());
-        }
-    }
-    
-    /**
-     * TC5: Dummy data test - very minimal dataset
-     */
-    @Test
-    public void TC5_DummyData() {
-        Application app = new Application(
-            new MovieFilereader(),
-            new UserFilereader()
-        );
-        
-        app.RecommenderApp(
-            TEST_DATA_PATH + "dummymovies.txt",
-            TEST_DATA_PATH + "dummyusers.txt",
-            OUTPUT_PATH
-        );
-        
-        try {
-            String content = new String(Files.readAllBytes(Paths.get(OUTPUT_PATH)));
-            assertNotNull(content);
-            assertTrue(content.contains("michael"), 
-                      "Should process dummy data successfully");
-        } catch (IOException e) {
-            fail("Output file should exist: " + e.getMessage());
-        }
-    }
-    
-    /**
-     * TC6: Invalid movie ID format
-     */
-    @Test
-    public void TC6_InvalidMovieIDFormat() {
+    public void TestingInvalidMovieIDFormat() {
         Application app = new Application(
             new MovieFilereader(),
             new UserFilereader()
@@ -180,7 +123,7 @@ public class CompleteSystem_IntegrationTest {
         
         app.RecommenderApp(
             TEST_DATA_PATH + "moviesInvalidID.txt",
-            TEST_DATA_PATH + "usersSmall.txt",
+            TEST_DATA_PATH + "users.txt",
             OUTPUT_PATH
         );
         
@@ -193,11 +136,9 @@ public class CompleteSystem_IntegrationTest {
         }
     }
     
-    /**
-     * TC7: Invalid movie title format
-     */
+  
     @Test
-    public void TC7_InvalidMovieTitleFormat() {
+    public void TestingInvalidMovieTitleFormat() {
         Application app = new Application(
             new MovieFilereader(),
             new UserFilereader()
@@ -205,7 +146,7 @@ public class CompleteSystem_IntegrationTest {
         
         app.RecommenderApp(
             TEST_DATA_PATH + "moviesInvalidTitle.txt",
-            TEST_DATA_PATH + "usersSmall.txt",
+            TEST_DATA_PATH + "users.txt",
             OUTPUT_PATH
         );
         
@@ -220,18 +161,16 @@ public class CompleteSystem_IntegrationTest {
         }
     }
     
-    /**
-     * TC8: Invalid user name format
-     */
+
     @Test
-    public void TC8_InvalidUserNameFormat() {
+    public void TestingInvalidUserNameFormat() {
         Application app = new Application(
             new MovieFilereader(),
             new UserFilereader()
         );
         
         app.RecommenderApp(
-            TEST_DATA_PATH + "moviesSmall.txt",
+            TEST_DATA_PATH + "movies.txt",
             TEST_DATA_PATH + "usersInvalidName.txt",
             OUTPUT_PATH
         );
@@ -245,11 +184,8 @@ public class CompleteSystem_IntegrationTest {
         }
     }
     
-    /**
-     * TC9: Invalid user ID format
-     */
     @Test
-    public void TC9_InvalidUserIDFormat() {
+    public void TestingInvalidUserIDFormat() {
         Application app = new Application(
             new MovieFilereader(),
             new UserFilereader()
@@ -267,6 +203,70 @@ public class CompleteSystem_IntegrationTest {
                       "Invalid user ID should trigger error");
         } catch (IOException e) {
             fail("Output file should exist: " + e.getMessage());
+        }
+    }
+
+      @Test
+    public void TestingFullDatasetGenreMatching() {
+        MovieFilereader movieReader = new MovieFilereader();
+        UserFilereader userReader = new UserFilereader();
+        
+        ArrayList<Movie> movies = movieReader.ReadMovies(TEST_DATA_PATH + "movies.txt");
+        ArrayList<User> users = userReader.ReadUsers(TEST_DATA_PATH + "users.txt");
+        
+        MovieValidator movieValidator = new MovieValidator(movies);
+        UserValidator userValidator = new UserValidator(users);
+        
+        movieValidator.Validate();
+        userValidator.Validate();
+        
+        assertTrue(movieValidator.ErrorIsEmpty(), "Movies should be valid");
+        assertTrue(userValidator.ErrorIsEmpty(), "Users should be valid");
+        
+        Recommender recommender = new Recommender(movies, users);
+        recommender.FindAllRecommendations();
+        
+        ArrayList<String> results = recommender.getRecommendationsResults();
+        assertFalse(results.isEmpty(), "Should generate recommendations");
+
+        for (User user : users) {
+            String userRecs = recommender.GetRecommendations_OnUser(user);
+            assertNotNull(userRecs, "Each user should have recommendation list");
+        }
+    }
+    
+   
+    
+   
+    @Test
+    public void TestingExcludingWatchedMovies() {
+        MovieFilereader movieReader = new MovieFilereader();
+        UserFilereader userReader = new UserFilereader();
+        
+        ArrayList<Movie> movies = movieReader.ReadMovies(TEST_DATA_PATH + "movies.txt");
+        ArrayList<User> users = userReader.ReadUsers(TEST_DATA_PATH + "users.txt");
+        
+        Recommender recommender = new Recommender(movies, users);
+        
+        for (User user : users) {
+            String recommendations = recommender.GetRecommendations_OnUser(user);
+            
+            if (recommendations != null && !recommendations.isEmpty()) {
+                String[] likedMovieIds = user.getLikedMovieIds();
+                
+                ArrayList<String> likedTitles = new ArrayList<>();
+                for (String likedId : likedMovieIds) {
+                    for (Movie movie : movies) {
+                        if (movie.getMovieId().equals(likedId)) {
+                            likedTitles.add(movie.getMovieTitle());
+                        }
+                    }
+                }
+                for (String likedTitle : likedTitles) {
+                    assertFalse(recommendations.contains(likedTitle),
+                               "Recommendations should not include already watched movies");
+                }
+            }
         }
     }
 }

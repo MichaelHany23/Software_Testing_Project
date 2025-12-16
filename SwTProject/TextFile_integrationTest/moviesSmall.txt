@@ -1,8 +1,0 @@
-Batman Dark Knight,BDK142
-Action,Thriller
-
-Inception,I210
-Sci-Fi,Thriller,Mystery
-
-Interstellar,I451
-Sci-Fi,Drama,Adventure
