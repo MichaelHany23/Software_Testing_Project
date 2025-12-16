@@ -64,5 +64,70 @@ public class MovieValidator_DFT {
         assertTrue(validator.getMovie_errors().get(0).contains("not unique"));
     }
 
+    @Test
+    public void DF05_idLengthMismatch() {
+        ArrayList<Movie> movies = new ArrayList<>();
+        movies.add(new Movie("The Matrix", "TM12", new String[]{"Action"}));
+
+        com.mycompany.swtproject.MovieValidator validator =
+                new com.mycompany.swtproject.MovieValidator(movies);
+        validator.Validate();
+
+        assertFalse(validator.ErrorIsEmpty());
+        assertTrue(validator.getMovie_errors().get(0).contains("Movie Id letters"));
+    }
+
+    @Test
+    public void DF06_idLetterMismatch() {
+        ArrayList<Movie> movies = new ArrayList<>();
+        movies.add(new Movie("The Matrix", "TA123", new String[]{"Action"}));
+
+        com.mycompany.swtproject.MovieValidator validator =
+                new com.mycompany.swtproject.MovieValidator(movies);
+        validator.Validate();
+
+        assertFalse(validator.ErrorIsEmpty());
+        assertTrue(validator.getMovie_errors().get(0).contains("Movie Id letters"));
+    }
+
+    @Test
+    public void DF07_nonAlphabetStart() {
+        ArrayList<Movie> movies = new ArrayList<>();
+        movies.add(new Movie("(The Matrix)", "M123", new String[]{"Action"}));
+
+        com.mycompany.swtproject.MovieValidator validator =
+                new com.mycompany.swtproject.MovieValidator(movies);
+        validator.Validate();
+
+        assertTrue(validator.ErrorIsEmpty());
+        assertNotNull(validator.getMovies());
+    }
+
+    @Test
+    public void DF08_multipleSpaces() {
+        ArrayList<Movie> movies = new ArrayList<>();
+        movies.add(new Movie("The  Matrix", "TM123", new String[]{"Action"}));
+
+        com.mycompany.swtproject.MovieValidator validator =
+                new com.mycompany.swtproject.MovieValidator(movies);
+        validator.Validate();
+
+        assertTrue(validator.ErrorIsEmpty());
+        assertNotNull(validator.getMovies());
+    }
+
+    @Test
+    public void DF09_getMoviesNullOnError() {
+        ArrayList<Movie> movies = new ArrayList<>();
+        movies.add(new Movie("The Matrix", "tm123", new String[]{"Action"})); // lowercase id -> error
+
+        com.mycompany.swtproject.MovieValidator validator =
+                new com.mycompany.swtproject.MovieValidator(movies);
+        validator.Validate();
+
+        assertFalse(validator.ErrorIsEmpty());
+        assertNull(validator.getMovies());
+    }
+
 }
 
