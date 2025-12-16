@@ -71,5 +71,55 @@ import java.util.ArrayList;
       
 <span class="fc" id="L72">      return users;</span>
       }
+
+    
+    // BufferedReader version for tests
+ 
+        public ArrayList&lt;User&gt; ReadUsers(BufferedReader reader) {
+        String myline;
+        ArrayList&lt;User&gt; users = new ArrayList&lt;&gt;();
+
+        try {
+            while ((myline = reader.readLine()) != null) {
+
+                // skip blank line
+                while (myline != null &amp;&amp; myline.trim().isEmpty()) {
+                    myline = reader.readLine();
+                }
+                if (myline == null) break;
+
+                String username = myline;
+                String likedmovies = reader.readLine();
+
+                if (likedmovies == null) {
+                    throw new Exception(&quot;Missing liked movies , at least 1 &quot;);
+                }
+
+                String[] userInfo = username.split(&quot;,&quot;);
+                if (userInfo.length != 2) {
+                    throw new Exception(&quot;missing info&quot;);
+                }
+
+                User CurrentUser = new User();
+                CurrentUser.setName(userInfo[0].trim());
+                CurrentUser.setUserId(userInfo[1].trim());
+
+                String[] likedIds = likedmovies.split(&quot;,&quot;);
+                for (int i = 0; i &lt; likedIds.length; i++) {
+                    likedIds[i] = likedIds[i].trim();
+                }
+                CurrentUser.setLikedMovieIds(likedIds);
+
+                users.add(CurrentUser);
+            }
+        } catch (Exception e) {
+            System.out.println(&quot;Exception from user reader: &quot; + e.getMessage());
+        }
+
+        return users;
+    }
+      
+      
 }
+
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
