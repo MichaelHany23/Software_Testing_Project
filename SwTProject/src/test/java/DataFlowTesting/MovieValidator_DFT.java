@@ -64,6 +64,8 @@ public class MovieValidator_DFT {
         assertTrue(validator.getMovie_errors().get(0).contains("not unique"));
     }
 
+
+
     @Test
     public void DF05_idLengthMismatch() {
         ArrayList<Movie> movies = new ArrayList<>();
@@ -116,6 +118,7 @@ public class MovieValidator_DFT {
         assertNotNull(validator.getMovies());
     }
 
+
     @Test
     public void DF09_getMoviesNullOnError() {
         ArrayList<Movie> movies = new ArrayList<>();
@@ -127,6 +130,33 @@ public class MovieValidator_DFT {
 
         assertFalse(validator.ErrorIsEmpty());
         assertNull(validator.getMovies());
+    }
+
+    @Test
+    public void DF10_trailingLeadingSpaces() {
+        ArrayList<Movie> movies = new ArrayList<>();
+        movies.add(new Movie("  The Matrix  ", "TM123", new String[]{"Action"}));
+
+        com.mycompany.swtproject.MovieValidator validator =
+                new com.mycompany.swtproject.MovieValidator(movies);
+        validator.Validate();
+
+        assertTrue(validator.ErrorIsEmpty());
+        assertNotNull(validator.getMovies());
+    }
+
+    @Test
+    public void DF11_onlyPunctuationTitle() {
+        ArrayList<Movie> movies = new ArrayList<>();
+        movies.add(new Movie("!!!", "123", new String[]{"Action"}));
+
+        com.mycompany.swtproject.MovieValidator validator =
+                new com.mycompany.swtproject.MovieValidator(movies);
+        validator.Validate();
+
+        // current behavior: titles with no alphabetic parts are considered valid if id length matches (3)
+        assertTrue(validator.ErrorIsEmpty());
+        assertNotNull(validator.getMovies());
     }
 
 }
