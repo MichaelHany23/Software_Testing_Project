@@ -1,8 +1,4 @@
-/*
- * Complete Integration Test Suite for Movie Recommendation System
- * Tests using TextFile_integrationTest data files
- */
-package com.mycompany.swtproject.IntegrationTesting;
+package IntegrationTesting;
 
 import java.io.IOException;
 import java.nio.file.Files;

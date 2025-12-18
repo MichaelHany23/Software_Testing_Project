@@ -1,4 +1,4 @@
-package com.mycompany.swtproject.IntegrationTesting;
+package IntegrationTesting.stubs;
 
 import java.util.ArrayList;
 

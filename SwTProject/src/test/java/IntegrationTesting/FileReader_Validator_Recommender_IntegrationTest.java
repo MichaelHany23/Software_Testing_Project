@@ -1,8 +1,4 @@
-/*
- * File Reader Validation Integration Test
- * Tests the integration of file readers with validators using TextFile_integrationTest data
- */
-package com.mycompany.swtproject.IntegrationTesting;
+package IntegrationTesting;
 
 import java.util.ArrayList;
 
@@ -20,7 +16,7 @@ import com.mycompany.swtproject.User;
 import com.mycompany.swtproject.UserFilereader;
 import com.mycompany.swtproject.UserValidator;
 
-public class FileReader_Validation_IntegrationTest {
+public class FileReader_Validator_Recommender_IntegrationTest {
 
     private static final String TEST_DATA_PATH = "TextFile_integrationTest/";
 

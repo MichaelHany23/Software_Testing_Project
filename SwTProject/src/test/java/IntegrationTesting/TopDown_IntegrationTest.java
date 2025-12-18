@@ -1,9 +1,4 @@
-/*
- * Top-Down Integration Test Suite for Movie Recommendation System
- * Tests components layer by layer, integrating from top (Application) downward
- * Uses stubs for lower-level components and replaces them incrementally
- */
-package com.mycompany.swtproject.IntegrationTesting;
+package IntegrationTesting;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -25,6 +20,9 @@ import com.mycompany.swtproject.Recommender;
 import com.mycompany.swtproject.User;
 import com.mycompany.swtproject.UserFilereader;
 import com.mycompany.swtproject.UserValidator;
+
+import IntegrationTesting.stubs.MovieFilereaderStub;
+import IntegrationTesting.stubs.UserFilereaderStub;
 
 public class TopDown_IntegrationTest {
 
@@ -247,7 +245,6 @@ public class TopDown_IntegrationTest {
                     "Layer 7B: OutputFileWriter should create error output file");
 
             String content = new String(Files.readAllBytes(Paths.get(OUTPUT_PATH)));
-            System.out.println("Output Content:\n" + content);
             assertNotNull(content, "Layer 7B: Output file content should exist");
             assertTrue(content.contains("ERROR"),
                     "Layer 7B: OutputFileWriter should write error messages to file");
