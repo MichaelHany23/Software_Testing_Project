@@ -62,7 +62,7 @@ public class MovieValidatorTest {
 
         // Assert
         assertTrue(validator.ErrorIsEmpty(), "Valid movie should have no errors");
-        System.out.println(validator.getMovie_errors());
+
     }
 
     @Test
@@ -109,7 +109,7 @@ public class MovieValidatorTest {
         validator.Validate();
 
         assertFalse(validator.ErrorIsEmpty(), "Should contain errors for non-numeric ID suffix");
-        System.out.println(validator.getMovie_errors());
+
     }
 
     @Test
@@ -134,6 +134,5 @@ public class MovieValidatorTest {
         validator = new MovieValidator(moviesList);
         validator.Validate();
         assertTrue(validator.ErrorIsEmpty(), "Id should contain only letters from the movie title not numbers");
-        System.out.println(validator.getMovie_errors());
     }
 }

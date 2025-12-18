@@ -14,8 +14,14 @@ public class MovieValidator {
 
     private ArrayList<String> Movie_errors;
     private ArrayList<Movie> movies;
+<<<<<<< HEAD
+   
+    public MovieValidator(ArrayList<Movie> movies)
+    {
+=======
 
     public MovieValidator(ArrayList<Movie> movies) {
+>>>>>>> 7ca9398 (added BlackBoxTesting)
         this.movies = movies;
         Movie_errors = new ArrayList<>();
     }
