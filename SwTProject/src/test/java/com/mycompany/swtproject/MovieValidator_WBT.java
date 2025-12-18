@@ -20,7 +20,16 @@ public class MovieValidator_WBT {
     
     public MovieValidator_WBT() {
     }
-        
+
+    /*
+      White-box coverage achieved:
+      - Statement coverage: 100%
+      - Branch coverage: 100%
+      - Loop coverage: 0, 1, many
+      - Condition Coverage
+      - Exception paths tested via stdout capture
+     */
+    
     //// FULL STATEMENT COVERAGE
     @Test
     public void StatementCov_1()
@@ -268,8 +277,46 @@ public class MovieValidator_WBT {
         assertEquals(MV.getMovie_errors().get(0), "ERROR: Movie Id letters {SDC11} wrong");
 
     }   
-               
-        
+
+    @Test
+   void ConditionCov_IDUppercaseButWrongLetter() {
+
+       // Title capital letters: B D K
+       // ID letters: B X K  → X is uppercase but wrong
+       ArrayList<Movie> movies = new ArrayList<>();
+       movies.add(new Movie(
+           "Batman Dark Knight",
+           "BXK142",
+           new String[]{"Action"}
+       ));
+
+       MovieValidator MV = new MovieValidator(movies);
+       MV.Validate();
+
+       assertFalse(MV.ErrorIsEmpty());
+       assertEquals(
+           "ERROR: Movie Id letters {BXK142} wrong",
+           MV.getMovie_errors().get(0)
+       );
+       
+   }
+    @Test
+    void ConditionCov_IDUppercaseAndCorrectLetter() {
+
+        // Fully valid case to force both conditions FALSE
+        ArrayList<Movie> movies = new ArrayList<>();
+        movies.add(new Movie(
+            "Batman Dark Knight",
+            "BDK142",
+            new String[]{"Action"}
+        ));
+
+        MovieValidator MV = new MovieValidator(movies);
+        MV.Validate();
+
+        assertTrue(MV.ErrorIsEmpty());
+    }
+      
     
     
     
