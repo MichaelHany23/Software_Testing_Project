@@ -35,7 +35,6 @@ public class CompleteSystem_IntegrationTest {
         try {
             Files.deleteIfExists(Paths.get(OUTPUT_PATH));
         } catch (IOException e) {
-
         }
     }
 
