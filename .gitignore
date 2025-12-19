@@ -1,10 +1,21 @@
-# Maven build output
+# Build artifacts
 target/
+*.class
 
-# IntelliJ / IDE files
+# IDE files
+.vscode/
 .idea/
 *.iml
+*.iws
+*.ipr
 
-# Accidental junk files
-how*
-tatus
+# OS files
+.DS_Store
+Thumbs.db
+
+# Maven
+.m2/
+
+# Local environment
+.env
+*.log

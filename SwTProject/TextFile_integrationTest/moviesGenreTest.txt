@@ -1,11 +1,11 @@
-Action Movie One,AM100
+Action Movie One,AMO100
 Action
 
-Action Movie Two,AM200
+Action Movie Two,AMT200
 Action
 
-Sci-Fi Movie One,SF100
+Sci Fi Movie,SFM100
 Sci-Fi
 
-Drama Movie One,DM100
+Drama Movie One,DMO100
 Drama

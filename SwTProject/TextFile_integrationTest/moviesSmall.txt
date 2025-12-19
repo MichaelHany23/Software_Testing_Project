@@ -1,8 +1,8 @@
-Batman Dark Knight,BDK142
+Batman Dark Knight, BDK142
 Action,Thriller
 
-Inception,I210
-Sci-Fi,Thriller,Mystery
+Spiderman Home Coming, SHC123
+Action,Adventure
 
-Interstellar,I451
-Sci-Fi,Drama,Adventure
+The Notebook, TN456
+Romance,Drama

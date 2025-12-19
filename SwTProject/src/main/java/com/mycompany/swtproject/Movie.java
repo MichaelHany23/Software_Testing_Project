@@ -9,23 +9,28 @@ package com.mycompany.swtproject;
  * @author Michael
  */
 public class Movie {
-    
-     private String MovieTitle;
-     private String MovieId;
-     private String[] genres;
-    
-     Movie()
-     {
-         
-     };
-     public Movie(String MovieTitle, String MovieId, String[] genres)
-     {
-         this.MovieTitle=MovieTitle;
-         this.MovieId = MovieId;
-         this.genres=genres;
-     };
-     
-     //sort genress
+
+    private String MovieTitle;
+    private String MovieId;
+    private String[] genres;
+
+    public Movie() {
+
+    }
+
+    public Movie(String MovieTitle, String MovieId, String[] genres) {
+        this.MovieTitle = MovieTitle;
+        this.MovieId = MovieId;
+        this.genres = genres;
+    }
+
+    public Movie(String MovieTitle, String MovieId) {
+        this.MovieTitle = MovieTitle;
+        this.MovieId = MovieId;
+        this.genres = new String[] {};
+    }
+
+    // sort genress
 
     public void setMovieTitle(String MovieTitle) {
         this.MovieTitle = MovieTitle;
