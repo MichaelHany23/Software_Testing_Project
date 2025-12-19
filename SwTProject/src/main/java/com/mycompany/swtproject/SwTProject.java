@@ -12,40 +12,22 @@ public class SwTProject {
 
     public static void main(String[] args) {
         System.out.println("Hello World!");
-        
-        System.out.println("Working Directory = " + System.getProperty("user.dir"));
-        MovieFilereader FrM = new MovieFilereader(); // movie file reader 
-        UserFilereader FrU = new UserFilereader();
-        String MovieFilePath =".txt";   //movie file directory
-        String UserFilePath =".txt";
-        String OutputFilePath=".txt";
-        Application app = new Application (FrM,FrU);
-        app.RecommenderApp(MovieFilePath, UserFilePath, OutputFilePath);
-        
-        
-       /* MovieFilereader FrM = new MovieFilereader(); // movie file reader 
-        UserFilereader FrU = new UserFilereader(); // user file reader
-        // user file directory
-        String MovieFilePath =".txt";   //movie file directory
-        String UserFilePath =".txt";
-        String OutputFilePath=".txt"; 
-                
-                
-        ArrayList<Movie> Movies = FrM.ReadMovies(MovieFilePath); // get lists of movies and user by reading file
-        ArrayList<User> Users = FrU.ReadUsers(UserFilePath);
-        
-        UserValidator UV= new UserValidator(Users);
-        MovieValidator MV= new MovieValidator(Movies);
-        
-        Recommender Recmnd = new Recommender( Movies, Users);
-        OutputFileWriter FwO = new OutputFileWriter();
-        Recmnd.GetRecommendationsInFile(FwO);
-        
-        */
 
-        
-        
-       
-                
+        // Check if arguments were provided (usually 3: moviePath, userPath, outputPath)
+        if (args.length < 3) {
+            System.out.println("Error: Missing file path arguments.");
+            return;
+        }
+
+        MovieFilereader FrM = new MovieFilereader();
+        UserFilereader FrU = new UserFilereader();
+
+        // Use the arguments from the test/command line
+        String MovieFilePath = args[0];
+        String UserFilePath = args[1];
+        String OutputFilePath = args[2];
+
+        Application app = new Application(FrM, FrU);
+        app.RecommenderApp(MovieFilePath, UserFilePath, OutputFilePath);
     }
 }

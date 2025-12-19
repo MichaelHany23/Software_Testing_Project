@@ -14,19 +14,37 @@ public class Movie {
     private String MovieId;
     private String[] genres;
 
+<<<<<<< HEAD
     Movie() {
 
     }
+=======
+    public Movie() {
+
+    };
+>>>>>>> 7ca9398 (added BlackBoxTesting)
 
     public Movie(String MovieTitle, String MovieId, String[] genres) {
         this.MovieTitle = MovieTitle;
         this.MovieId = MovieId;
         this.genres = genres;
+<<<<<<< HEAD
     }
 
     ;
      
      //sort genress
+=======
+    };
+
+    public Movie(String MovieTitle, String MovieId) {
+        this.MovieTitle = MovieTitle;
+        this.MovieId = MovieId;
+        this.genres = new String[] {};
+    }
+
+    // sort genress
+>>>>>>> 7ca9398 (added BlackBoxTesting)
 
     public void setMovieTitle(String MovieTitle) {
         this.MovieTitle = MovieTitle;

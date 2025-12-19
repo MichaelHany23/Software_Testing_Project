@@ -14,11 +14,18 @@ public class User {
     private String userId;
     private String[] likedMovieIds;
 
+<<<<<<< HEAD
     User() {
 
     }
 
     ;
+=======
+    public User() {
+
+    };
+
+>>>>>>> fd16600 (added Rest of the test classes)
     public User(String name, String userId, String[] likedMovieIds) {
         this.name = name;
         this.userId = userId;
