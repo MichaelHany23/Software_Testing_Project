@@ -356,4 +356,132 @@ public class OutputFileWriter_DFT {
             // Cleanup
         }
     }
+
+    @Test
+    public void DF16_cleanFileMethod() {
+        OutputFileWriter writer = new OutputFileWriter(testFilePath);
+        
+        // Write some content first
+        ArrayList<String> results = new ArrayList<>();
+        results.add("User1,ID1");
+        results.add("Movie1,Movie2");
+        writer.WriteRecommendations(results);
+
+        // Verify content is written
+        try (BufferedReader reader = new BufferedReader(new FileReader(testFilePath))) {
+            String line = reader.readLine();
+            assertEquals("User1,ID1", line);
+        } catch (Exception e) {
+            fail("Error reading file: " + e.getMessage());
+        }
+
+        // Now write different content which should clean first
+        ArrayList<String> newResults = new ArrayList<>();
+        newResults.add("User2,ID2");
+        newResults.add("Movie3");
+        writer.WriteRecommendations(newResults);
+
+        // Verify old content is cleaned and new content exists
+        try (BufferedReader reader = new BufferedReader(new FileReader(testFilePath))) {
+            String line = reader.readLine();
+            assertEquals("User2,ID2", line);
+            String nextLine = reader.readLine();
+            assertEquals("Movie3", nextLine);
+            String thirdLine = reader.readLine();
+            assertNull(thirdLine); // No more content, old data was cleaned
+        } catch (Exception e) {
+            fail("Error reading file: " + e.getMessage());
+        }
+    }
+
+    @Test
+    public void DF17_writeFirstErrorMultipleErrors() {
+        OutputFileWriter writer = new OutputFileWriter(testFilePath);
+        ArrayList<String> errors = new ArrayList<>();
+        errors.add("ERROR: Invalid Movie Title");
+        errors.add("ERROR: Invalid Movie ID"); // Should only write first error
+        errors.add("ERROR: Duplicate Movie");
+
+        writer.WriteFirstError(errors);
+
+        assertTrue(Files.exists(Paths.get(testFilePath)));
+        try (BufferedReader reader = new BufferedReader(new FileReader(testFilePath))) {
+            String line = reader.readLine();
+            assertEquals("ERROR: Invalid Movie Title", line); // Only first error
+            String nextLine = reader.readLine();
+            assertNull(nextLine); // No second error
+        } catch (Exception e) {
+            fail("Error reading file: " + e.getMessage());
+        }
+    }
+
+    @Test
+    public void DF18_writeRecommendationsOddNumberOfLines() {
+        OutputFileWriter writer = new OutputFileWriter(testFilePath);
+        ArrayList<String> results = new ArrayList<>();
+        results.add("User1,ID1");
+        results.add("Movie1");
+        results.add("User2,ID2");
+
+        writer.WriteRecommendations(results);
+
+        assertTrue(Files.exists(Paths.get(testFilePath)));
+        try (BufferedReader reader = new BufferedReader(new FileReader(testFilePath))) {
+            assertEquals("User1,ID1", reader.readLine());
+            assertEquals("Movie1", reader.readLine());
+            assertEquals("", reader.readLine()); // Blank line after pair
+            assertEquals("User2,ID2", reader.readLine());
+        } catch (Exception e) {
+            fail("Error reading file: " + e.getMessage());
+        }
+    }
+
+    @Test
+    public void DF19_constructorWithoutPath() {
+        OutputFileWriter writer = new OutputFileWriter();
+        assertNotNull(writer);
+        
+        // Setting path afterward
+        writer.setOutputPath(testFilePath);
+        ArrayList<String> results = new ArrayList<>();
+        results.add("Test,123456789");
+        results.add("Movie1");
+
+        writer.WriteRecommendations(results);
+
+        assertTrue(Files.exists(Paths.get(testFilePath)));
+    }
+
+    @Test
+    public void DF20_longContentWrite() {
+        OutputFileWriter writer = new OutputFileWriter(testFilePath);
+        ArrayList<String> results = new ArrayList<>();
+        
+        // Create many users and recommendations
+        for (int i = 0; i < 10; i++) {
+            results.add("User" + i + ",ID" + i);
+            StringBuilder movies = new StringBuilder();
+            for (int j = 0; j < 5; j++) {
+                movies.append("Movie").append(i * 10 + j);
+                if (j < 4) movies.append(",");
+            }
+            results.add(movies.toString());
+        }
+
+        writer.WriteRecommendations(results);
+
+        assertTrue(Files.exists(Paths.get(testFilePath)));
+        try (BufferedReader reader = new BufferedReader(new FileReader(testFilePath))) {
+            String line = reader.readLine();
+            assertTrue(line.startsWith("User0"));
+            int lineCount = 1;
+            while (reader.readLine() != null) {
+                lineCount++;
+            }
+            // Should have multiple lines written
+            assertTrue(lineCount > 10);
+        } catch (Exception e) {
+            fail("Error reading file: " + e.getMessage());
+        }
+    }
 }
