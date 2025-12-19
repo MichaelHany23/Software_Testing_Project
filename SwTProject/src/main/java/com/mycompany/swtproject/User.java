@@ -9,24 +9,24 @@ package com.mycompany.swtproject;
  * @author Michael
  */
 public class User {
-    
+
     private String name;
     private String userId;
     private String[] likedMovieIds;
-    
-    User()
-    {
-        
-    };
-    User(String name ,String userId , String[] likedMovieIds)
-    {
-        this.name =name;
-        this.userId=userId;
-        this.likedMovieIds=likedMovieIds;
-                
+
+    User() {
+
+    }
+
+    ;
+    public User(String name, String userId, String[] likedMovieIds) {
+        this.name = name;
+        this.userId = userId;
+        this.likedMovieIds = likedMovieIds;
+
     }
     // sort liked movieIds
-    
+
     public void setName(String name) {
         this.name = name;
     }
@@ -50,5 +50,5 @@ public class User {
     public String getUserId() {
         return userId;
     }
-    
+
 }

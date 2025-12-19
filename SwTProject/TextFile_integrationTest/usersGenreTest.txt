@@ -1,0 +1,8 @@
+Alice Wonder,12345678A
+AMO100
+
+Bob Builder,23456789B
+SFM100
+
+Charlie Brown,34567890C
+AMO100,SFM100

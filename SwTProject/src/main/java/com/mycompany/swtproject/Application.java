@@ -23,7 +23,7 @@ public class Application {
     private Recommender rcmnd ;
     private OutputFileWriter fw;
     
-    Application(MovieFilereader frMovie,UserFilereader frUser )  
+    public Application(MovieFilereader frMovie,UserFilereader frUser )  
     {
         this.frUser=frUser;
         this.frMovie=frMovie;
