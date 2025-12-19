@@ -19,11 +19,11 @@ public class OutputFileWriter {
     private String outputPath;
     
     
-    OutputFileWriter()
+    public OutputFileWriter()
     {
         
     }
-    OutputFileWriter(String outputpath)
+    public OutputFileWriter(String outputpath)
     {
         this.outputPath = outputpath;
     }
@@ -31,7 +31,7 @@ public class OutputFileWriter {
     public void setOutputPath(String outputPath) {
         this.outputPath = outputPath;
     }
-    protected void WriteFirstError(ArrayList<String> results)
+    public void WriteFirstError(ArrayList<String> results)
     {   
         //clean the file before any writing
         this.cleanFile(outputPath);
@@ -54,7 +54,7 @@ public class OutputFileWriter {
             e.printStackTrace();
         }
     }
-    protected void WriteRecommendations(ArrayList<String> results)
+    public void WriteRecommendations(ArrayList<String> results)
     {
         //clean the file before any writing
         this.cleanFile(outputPath);

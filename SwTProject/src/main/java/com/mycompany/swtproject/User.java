@@ -14,11 +14,11 @@ public class User {
     private String userId;
     private String[] likedMovieIds;
     
-    User()
+    public User()
     {
         
     };
-    User(String name ,String userId , String[] likedMovieIds)
+    public User(String name ,String userId , String[] likedMovieIds)
     {
         this.name =name;
         this.userId=userId;
