@@ -38,6 +38,27 @@ public class OutputFileWriter {
             // results contains:
             // error line !!!
             String line = results.get(0);
+<<<<<<< HEAD
+                
+                writer.write(line);
+                writer.newLine();
+                
+            writer.close();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+    public void WriteRecommendations(ArrayList<String> results)
+    {
+        //clean the file before any writing
+        this.cleanFile(outputPath);
+        try
+        {
+            BufferedWriter writer = new BufferedWriter(new FileWriter(outputPath, true)); // append mode
+=======
+>>>>>>> origin/main
 
             writer.write(line);
             writer.newLine();

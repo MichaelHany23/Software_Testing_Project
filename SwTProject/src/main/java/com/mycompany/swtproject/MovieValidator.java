@@ -14,14 +14,8 @@ public class MovieValidator {
 
     private ArrayList<String> Movie_errors;
     private ArrayList<Movie> movies;
-<<<<<<< HEAD
-   
-    public MovieValidator(ArrayList<Movie> movies)
-    {
-=======
 
     public MovieValidator(ArrayList<Movie> movies) {
->>>>>>> 7ca9398 (added BlackBoxTesting)
         this.movies = movies;
         Movie_errors = new ArrayList<>();
     }
@@ -88,11 +82,12 @@ public class MovieValidator {
             // contain all the capital letters in the title
             int expectedLetterIndex = 0;
             for (int j = 0; j < titleparts.length; j++) {
+                if (titleparts[j].isEmpty()) continue;
                 char current_firstchar = titleparts[j].charAt(0);
                 if (!Character.isAlphabetic(current_firstchar))
                     continue;
 
-                if (!Character.isUpperCase(id.charAt(expectedLetterIndex))
+                if (expectedLetterIndex >= id.length() || !Character.isUpperCase(id.charAt(expectedLetterIndex))
                         || current_firstchar != id.charAt(expectedLetterIndex)) {
 
                     Movie_errors.add("ERROR: Movie Id letters {" + id + "} wrong");
