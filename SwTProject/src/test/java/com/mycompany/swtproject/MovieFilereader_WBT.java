@@ -233,4 +233,41 @@ public class MovieFilereader_WBT {
 
         assertEquals(4, movies.size());
     }
+    
+    
+   ////////// Condition coverga
+        @Test
+    void TC8_NoBlankLineConditionFalse() {
+
+        // C1 = true, C2 = false
+        // Inner while condition fails immediately
+
+        String input =
+            "Avatar,A1\n" +
+            "Sci-Fi\n";
+
+        BufferedReader br = new BufferedReader(new StringReader(input));
+        ArrayList<Movie> movies = reader.ReadMovies(br);
+
+        assertEquals(1, movies.size());
+    }
+
+    
+      @Test
+    void TC10_BlankLinesAfterMovie() {
+
+        String input =
+            "Movie1,1\nGenre1\n\n\n" +
+            "Movie2,2\nGenre2\n";
+
+        BufferedReader br = new BufferedReader(new StringReader(input));
+        ArrayList<Movie> movies = reader.ReadMovies(br);
+
+        assertEquals(2, movies.size());
+    }
+    /*
+    Although statement and branch coverage reach 100%, full condition coverage cannot be achieved.
+    The atomic condition myline != null inside the compound predicate
+    (myline != null && myline.trim().isEmpty()) cannot evaluate to false due to the guarding outer while
+    */
 }
