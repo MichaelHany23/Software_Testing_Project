@@ -1,0 +1,17 @@
+/workspaces/Software_Testing_Project/SwTProject/src/test/java/BlackBoxTesting/MovieValidator.java
+/workspaces/Software_Testing_Project/SwTProject/src/test/java/DataFlowTesting/MovieValidator.java
+/workspaces/Software_Testing_Project/SwTProject/src/test/java/IntegrationTesting/Application.java
+/workspaces/Software_Testing_Project/SwTProject/src/test/java/WhiteBoxTesting/MovieValidator.java
+/workspaces/Software_Testing_Project/SwTProject/src/test/java/com/mycompany/swtproject/ApplicationTest.java
+/workspaces/Software_Testing_Project/SwTProject/src/test/java/com/mycompany/swtproject/MovieFilereaderTest.java
+/workspaces/Software_Testing_Project/SwTProject/src/test/java/com/mycompany/swtproject/MovieFilereader_WBT.java
+/workspaces/Software_Testing_Project/SwTProject/src/test/java/com/mycompany/swtproject/MovieReader_Validator_integrationTest.java
+/workspaces/Software_Testing_Project/SwTProject/src/test/java/com/mycompany/swtproject/MovieValidatorTest.java
+/workspaces/Software_Testing_Project/SwTProject/src/test/java/com/mycompany/swtproject/MovieValidator_WBT.java
+/workspaces/Software_Testing_Project/SwTProject/src/test/java/com/mycompany/swtproject/OutputFileWriterTest.java
+/workspaces/Software_Testing_Project/SwTProject/src/test/java/com/mycompany/swtproject/OutputFileWriter_WBT.java
+/workspaces/Software_Testing_Project/SwTProject/src/test/java/com/mycompany/swtproject/RecommenderTest.java
+/workspaces/Software_Testing_Project/SwTProject/src/test/java/com/mycompany/swtproject/Recommender_WBT.java
+/workspaces/Software_Testing_Project/SwTProject/src/test/java/com/mycompany/swtproject/UserFilereaderTest.java
+/workspaces/Software_Testing_Project/SwTProject/src/test/java/com/mycompany/swtproject/UserValidatorTest.java
+/workspaces/Software_Testing_Project/SwTProject/src/test/java/com/mycompany/swtproject/UserValidator_WBT.java
