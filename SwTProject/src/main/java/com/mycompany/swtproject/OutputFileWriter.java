@@ -38,27 +38,6 @@ public class OutputFileWriter {
             // results contains:
             // error line !!!
             String line = results.get(0);
-<<<<<<< HEAD
-                
-                writer.write(line);
-                writer.newLine();
-                
-            writer.close();
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-        }
-    }
-    public void WriteRecommendations(ArrayList<String> results)
-    {
-        //clean the file before any writing
-        this.cleanFile(outputPath);
-        try
-        {
-            BufferedWriter writer = new BufferedWriter(new FileWriter(outputPath, true)); // append mode
-=======
->>>>>>> origin/main
 
             writer.write(line);
             writer.newLine();
@@ -78,13 +57,13 @@ public class OutputFileWriter {
             // results contains:
             // line 1 → "username,userid"
             // line 2 → "movie1,movie2,movie3"
-
             for (int i = 0; i < results.size(); i++) {
                 writer.write(results.get(i));
                 writer.newLine();
-                if (i % 2 != 0)
+                if (i % 2 != 0) {
                     writer.newLine(); // add blank line between users
-            }
+
+                            }}
 
             writer.close();
         } catch (Exception e) {
@@ -133,5 +112,4 @@ public class OutputFileWriter {
      * 
      * }
      */
-
 }

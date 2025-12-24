@@ -17,18 +17,11 @@ public class Recommender {
     private ArrayList<Movie> movies = new ArrayList<>(); // all movies from file
     private ArrayList<User> users = new ArrayList<>(); // all users from file
     private ArrayList<String> recommendationsResults = new ArrayList<>();
-<<<<<<< HEAD
-    
-    public Recommender( ArrayList<Movie> Filemovies , ArrayList<User> Fileusers)
-    {
-        this.movies = Filemovies ;
-        this.users = Fileusers ;
-=======
 
     public Recommender(ArrayList<Movie> Filemovies, ArrayList<User> Fileusers) {
         this.movies = Filemovies;
         this.users = Fileusers;
->>>>>>> fd16600 (added Rest of the test classes)
+
     }
 
     public void GetRecommendationsInFile(OutputFileWriter O) {
@@ -51,21 +44,10 @@ public class Recommender {
             recommendationsResults.add(u.getName() + "," + u.getUserId());
             recommendationsResults.add(s);
         }
-<<<<<<< HEAD
-     
-    }
-    public String GetRecommendations_OnUser(User U)
-    {
-        //used per each user 
-        return recommendMovies(U);
-    }   
- 
-=======
->>>>>>> fd16600 (added Rest of the test classes)
 
     }
 
-    private String GetRecommendations_OnUser(User U) {
+    public String GetRecommendations_OnUser(User U) {
         // used per each user
         return recommendMovies(U);
     }
@@ -122,5 +104,4 @@ public class Recommender {
      * 
      * }
      */
-
 }

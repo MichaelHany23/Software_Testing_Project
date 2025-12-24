@@ -15,12 +15,7 @@ public class UserValidator {
     ArrayList<String> User_errors;
     ArrayList<User> users;
 
-<<<<<<< HEAD
-  public  UserValidator(ArrayList<User> users)
-    {
-=======
     public UserValidator(ArrayList<User> users) {
->>>>>>> fd16600 (added Rest of the test classes)
         this.users = users;
         User_errors = new ArrayList<>();
     }
@@ -39,8 +34,9 @@ public class UserValidator {
     }
 
     public ArrayList<User> getUsers() {
-        if (ErrorIsEmpty())
+        if (ErrorIsEmpty()) {
             return users;
+        }
         return null;
     }
 
@@ -74,8 +70,9 @@ public class UserValidator {
                     break;
                 }
             }
-            if (invalid)
+            if (invalid) {
                 continue;
+            }
 
             ///////////////////////////////
             // USER ID VALIDATION
@@ -119,8 +116,9 @@ public class UserValidator {
                     }
                 }
             }
-            if (invalid)
+            if (invalid) {
                 continue;
+            }
 
             // rule 4: must be unique (no duplicates)
             for (int j = i - 1; j >= 0; j--) {
@@ -131,8 +129,9 @@ public class UserValidator {
                     break;
                 }
             }
-            if (invalid)
+            if (invalid) {
                 continue;
+            }
         }
     }
 }
