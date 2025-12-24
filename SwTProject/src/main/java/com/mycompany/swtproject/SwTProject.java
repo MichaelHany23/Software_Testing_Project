@@ -11,10 +11,21 @@ import java.util.ArrayList;
 public class SwTProject {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+       System.out.println("Hello World!");
+        
+        System.out.println("Working Directory = " + System.getProperty("user.dir"));
+        MovieFilereader FrM = new MovieFilereader(); // movie file reader 
+        UserFilereader FrU = new UserFilereader();
+        // add paths here 
+        String MovieFilePath =".txt";   //movie file directory
+        String UserFilePath =".txt";
+        String OutputFilePath=".txt";
+        Application app = new Application (FrM,FrU);
+        app.RecommenderApp(MovieFilePath, UserFilePath, OutputFilePath);
+        
 
         // Check if arguments were provided (usually 3: moviePath, userPath, outputPath)
-        if (args.length < 3) {
+      /*  if (args.length < 3) {
             System.out.println("Error: Missing file path arguments.");
             return;
         }
@@ -28,6 +39,6 @@ public class SwTProject {
         String OutputFilePath = args[2];
 
         Application app = new Application(FrM, FrU);
-        app.RecommenderApp(MovieFilePath, UserFilePath, OutputFilePath);
+        app.RecommenderApp(MovieFilePath, UserFilePath, OutputFilePath); */
     }
 }
