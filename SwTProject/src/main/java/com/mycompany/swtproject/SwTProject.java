@@ -11,18 +11,21 @@ import java.util.ArrayList;
 public class SwTProject {
 
     public static void main(String[] args) {
-       System.out.println("Hello World!");
-        
-        System.out.println("Working Directory = " + System.getProperty("user.dir"));
-        MovieFilereader FrM = new MovieFilereader(); // movie file reader 
-        UserFilereader FrU = new UserFilereader();
-        // add paths here 
-        String MovieFilePath =".txt";   //movie file directory
-        String UserFilePath =".txt";
-        String OutputFilePath=".txt";
-        Application app = new Application (FrM,FrU);
-        app.RecommenderApp(MovieFilePath, UserFilePath, OutputFilePath);
-        
+  
+    System.out.println("Working Directory = " + System.getProperty("user.dir"));
+
+    MovieFilereader FrM = new MovieFilereader();
+    UserFilereader FrU = new UserFilereader();
+
+    String basePath = System.getProperty("user.dir")
+            + "/TextFile_integrationTest/";
+
+    String MovieFilePath  = basePath + "movies.txt";
+    String UserFilePath   = basePath + "users.txt";
+    String OutputFilePath = basePath + "output.txt";
+
+    Application app = new Application(FrM, FrU);
+    app.RecommenderApp(MovieFilePath, UserFilePath, OutputFilePath);
 
         // Check if arguments were provided (usually 3: moviePath, userPath, outputPath)
       /*  if (args.length < 3) {
